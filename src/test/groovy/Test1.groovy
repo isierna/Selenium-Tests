@@ -1,5 +1,4 @@
 import org.openqa.selenium.WebDriver
-import org.openqa.selenium.chrome.ChromeDriver
 import org.openqa.selenium.firefox.FirefoxDriver
 import org.testng.annotations.AfterTest
 import org.testng.annotations.BeforeTest
@@ -22,17 +21,5 @@ class Test1 {
     void secondTest() {
 
         driver.get("http://www.google.com")
-    }
-
-
-    void firstTest() {
-        System.setProperty("webdriver.chrome.driver", "/Users/irena/System/chromedriver")
-
-        def driver = new ChromeDriver()
-
-        driver.get("http://www.google.com")
-
-        driver.quit()
-
     }
 }
