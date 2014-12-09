@@ -1,0 +1,23 @@
+apply plugin: 'java'
+apply plugin: 'groovy'
+
+sourceCompatibility = 1.8
+version = '1.0'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    testCompile 'org.testng:testng:6.7',
+            'org.codehaus.groovy:groovy-all:2.3.6',
+            'org.seleniumhq.selenium:selenium-java:2.44.0',
+            'org.seleniumhq.selenium:selenium-chrome-driver:2.44.0',
+            'org.seleniumhq.selenium:selenium-firefox-driver:2.44.0'
+
+}
+
+test {
+    useTestNG()
+}
