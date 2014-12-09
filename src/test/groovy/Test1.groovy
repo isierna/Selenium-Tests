@@ -19,7 +19,6 @@ class Test1 {
 
     @Test
     void secondTest() {
-
         driver.get("http://www.google.com")
     }
 }
