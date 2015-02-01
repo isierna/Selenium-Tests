@@ -4,11 +4,12 @@ import org.openqa.selenium.WebElement
 import org.openqa.selenium.firefox.FirefoxDriver
 import org.openqa.selenium.support.ui.ExpectedConditions
 import org.openqa.selenium.support.ui.WebDriverWait
+import org.testng.Assert
 import org.testng.annotations.AfterTest
 import org.testng.annotations.BeforeTest
 import org.testng.annotations.Test
 
-class Test1 {
+class TestingPagesFromGoogle {
     WebDriver driver
 
     @BeforeTest
@@ -28,11 +29,9 @@ class Test1 {
         WebElement elementLinkText = (new WebDriverWait(driver, 10)).until(ExpectedConditions.presenceOfElementLocated(By.linkText("Selenium (software) - Wikipedia, the free encyclopedia")))
         elementLinkText.click()
 
-        WebElement elementImage = (new WebDriverWait(driver, 10)).until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("img[src*='//upload.wikimedia.org/wikipedia/en/5/5c/Seleniumlogo.png']")))
+        (new WebDriverWait(driver, 10)).until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("img[src*='//upload.wikimedia.org/wikipedia/en/5/5c/Seleniumlogo.png']")))
 
-        String a = driver.getTitle()
-        a.equals("Selenium (software) - Wikipedia, the free encyclopedia")
-
+        Assert.assertEquals(driver.getTitle(), "Selenium (software) - Wikipedia, the free encyclopedia", "Page title is not correct")
     }
 
     @AfterTest
