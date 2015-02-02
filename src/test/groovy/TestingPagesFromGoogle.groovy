@@ -19,7 +19,7 @@ class TestingPagesFromGoogle {
 
 
     @Test
-    void secondTest() {
+    void SeleniumWikiPage() {
         driver.get("http://www.google.com")
 
         WebElement searchInput = driver.findElement(By.id("gbqfq"))
@@ -32,6 +32,37 @@ class TestingPagesFromGoogle {
         (new WebDriverWait(driver, 10)).until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("img[src*='//upload.wikimedia.org/wikipedia/en/5/5c/Seleniumlogo.png']")))
 
         Assert.assertEquals(driver.getTitle(), "Selenium (software) - Wikipedia, the free encyclopedia", "Page title is not correct")
+    }
+
+    @Test
+    void WebDriverSearch() {
+        driver.get("http://www.google.com")
+
+        WebElement searchInput = driver.findElement(By.id("gbqfq"))
+        searchInput.sendKeys("Webdriver")
+        searchInput.submit()
+
+        (new WebDriverWait(driver, 10)).until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("li.g")))
+        List <WebElement> listOfItemsOnPage = driver.findElements(By.cssSelector("li.g"))
+        System.out.println("Number of results are " + listOfItemsOnPage.size())
+
+        Assert.assertEquals(listOfItemsOnPage.size(), 10, "Results are not 10")
+    }
+
+    @Test
+    void CheckThatGoodleSignHas10Letters(){
+        driver.get("http://www.google.com")
+
+        WebElement searchInput = driver.findElement(By.id("gbqfq"))
+        searchInput.sendKeys("InteliJ IDEA")
+        searchInput.submit()
+
+        (new WebDriverWait(driver, 10)).until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("span.csb.gbil.ch")))
+        List<WebElement> listOfLettersDisplayedOnPage = driver.findElements(By.cssSelector("span.csb.gbil.ch"))
+
+        System.out.println("Number of letters are " + listOfLettersDisplayedOnPage.size())
+
+        Assert.assertEquals(listOfLettersDisplayedOnPage.size(),10, "Not 10 letters")
     }
 
     @AfterTest
