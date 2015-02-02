@@ -9,6 +9,8 @@ import org.testng.annotations.AfterTest
 import org.testng.annotations.BeforeTest
 import org.testng.annotations.Test
 
+import static org.testng.Assert.assertTrue
+
 class TestingPagesFromGoogle {
     WebDriver driver
 
@@ -50,7 +52,7 @@ class TestingPagesFromGoogle {
     }
 
     @Test
-    void CheckThatGoodleSignHas10Letters(){
+    void CheckThatGoogleSignHas10Letters(){
         driver.get("http://www.google.com")
 
         WebElement searchInput = driver.findElement(By.id("gbqfq"))
@@ -63,6 +65,22 @@ class TestingPagesFromGoogle {
         System.out.println("Number of letters are " + listOfLettersDisplayedOnPage.size())
 
         Assert.assertEquals(listOfLettersDisplayedOnPage.size(),10, "Not 10 letters")
+    }
+
+    @Test
+    void TestingPaginationAfterSearch(){
+        driver.get("http://www.google.com")
+
+        WebElement searchInput = driver.findElement(By.id("gbqfq"))
+        searchInput.sendKeys("InteliJ IDEA")
+        searchInput.submit()
+
+        (new WebDriverWait(driver, 10)).until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("table[id='nav']")))
+        List<WebElement> listNumberOfPages = driver.findElements(By.cssSelector("span.csb.gbil.ch"))
+        int numberOfPages = listNumberOfPages.size()
+        System.out.println("Number of pages " + listNumberOfPages.size())
+
+        assertTrue(numberOfPages>=10,"Number of pages is less than 10" )
     }
 
     @AfterTest
