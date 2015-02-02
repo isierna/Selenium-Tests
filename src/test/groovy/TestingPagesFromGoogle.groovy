@@ -11,7 +11,7 @@ import org.testng.annotations.Test
 
 import static org.testng.Assert.assertTrue
 
-class TestingPagesFromGoogle {
+class TestingPagesFromGoogle extends ChangedParams{
     WebDriver driver
 
     @BeforeTest
@@ -28,7 +28,7 @@ class TestingPagesFromGoogle {
         searchInput.sendKeys("selenium Webdriver wiki")
         searchInput.submit()
 
-        WebElement elementLinkText = (new WebDriverWait(driver, 10)).until(ExpectedConditions.presenceOfElementLocated(By.linkText("Selenium (software) - Wikipedia, the free encyclopedia")))
+        WebElement elementLinkText = (new WebDriverWait(driver, variableForWaiter)).until(ExpectedConditions.presenceOfElementLocated(By.linkText("Selenium (software) - Wikipedia, the free encyclopedia")))
         elementLinkText.click()
 
         (new WebDriverWait(driver, 10)).until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("img[src*='//upload.wikimedia.org/wikipedia/en/5/5c/Seleniumlogo.png']")))
@@ -44,7 +44,7 @@ class TestingPagesFromGoogle {
         searchInput.sendKeys("Webdriver")
         searchInput.submit()
 
-        (new WebDriverWait(driver, 10)).until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("li.g")))
+        (new WebDriverWait(driver, variableForWaiter)).until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("li.g")))
         List <WebElement> listOfItemsOnPage = driver.findElements(By.cssSelector("li.g"))
         System.out.println("Number of results are " + listOfItemsOnPage.size())
 
@@ -59,7 +59,7 @@ class TestingPagesFromGoogle {
         searchInput.sendKeys("InteliJ IDEA")
         searchInput.submit()
 
-        (new WebDriverWait(driver, 10)).until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("span.csb.gbil.ch")))
+        (new WebDriverWait(driver, variableForWaiter)).until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("span.csb.gbil.ch")))
         List<WebElement> listOfLettersDisplayedOnPage = driver.findElements(By.cssSelector("span.csb.gbil.ch"))
 
         System.out.println("Number of letters are " + listOfLettersDisplayedOnPage.size())
@@ -75,7 +75,7 @@ class TestingPagesFromGoogle {
         searchInput.sendKeys("InteliJ IDEA")
         searchInput.submit()
 
-        (new WebDriverWait(driver, 10)).until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("table[id='nav']")))
+        (new WebDriverWait(driver, variableForWaiter)).until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("table[id='nav']")))
         List<WebElement> listNumberOfPages = driver.findElements(By.cssSelector("span.csb.gbil.ch"))
         int numberOfPages = listNumberOfPages.size()
         System.out.println("Number of pages " + listNumberOfPages.size())
