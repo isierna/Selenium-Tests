@@ -11,7 +11,7 @@ import org.testng.annotations.Test
 
 import static org.testng.Assert.assertTrue
 
-class TestingPagesFromGoogle extends ChangedParams{
+class TestingPagesFromGoogle extends ChangedParams {
     WebDriver driver
 
     @BeforeTest
@@ -31,7 +31,8 @@ class TestingPagesFromGoogle extends ChangedParams{
         WebElement elementLinkText = (new WebDriverWait(driver, variableForWaiter)).until(ExpectedConditions.presenceOfElementLocated(By.linkText("Selenium (software) - Wikipedia, the free encyclopedia")))
         elementLinkText.click()
 
-        (new WebDriverWait(driver, 10)).until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("img[src*='//upload.wikimedia.org/wikipedia/en/5/5c/Seleniumlogo.png']")))
+        def waiterObject = new ChangedParams()
+        waiterObject.waitUntil("img[src*='//upload.wikimedia.org/wikipedia/en/5/5c/Seleniumlogo.png']", driver)
 
         Assert.assertEquals(driver.getTitle(), "Selenium (software) - Wikipedia, the free encyclopedia", "Page title is not correct")
     }
@@ -44,43 +45,49 @@ class TestingPagesFromGoogle extends ChangedParams{
         searchInput.sendKeys("Webdriver")
         searchInput.submit()
 
-        (new WebDriverWait(driver, variableForWaiter)).until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("li.g")))
-        List <WebElement> listOfItemsOnPage = driver.findElements(By.cssSelector("li.g"))
+        def waiterObject = new ChangedParams()
+        waiterObject.waitUntil("li.g", driver)
+
+        List<WebElement> listOfItemsOnPage = driver.findElements(By.cssSelector("li.g"))
         System.out.println("Number of results are " + listOfItemsOnPage.size())
 
         Assert.assertEquals(listOfItemsOnPage.size(), 10, "Results are not 10")
     }
 
     @Test
-    void CheckThatGoogleSignHas10Letters(){
+    void CheckThatGoogleSignHas10Letters() {
         driver.get("http://www.google.com")
 
         WebElement searchInput = driver.findElement(By.id("gbqfq"))
         searchInput.sendKeys("InteliJ IDEA")
         searchInput.submit()
 
-        (new WebDriverWait(driver, variableForWaiter)).until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("span.csb.gbil.ch")))
+        def waiterObject = new ChangedParams()
+        waiterObject.waitUntil("span.csb.gbil.ch", driver)
+
         List<WebElement> listOfLettersDisplayedOnPage = driver.findElements(By.cssSelector("span.csb.gbil.ch"))
 
         System.out.println("Number of letters are " + listOfLettersDisplayedOnPage.size())
 
-        Assert.assertEquals(listOfLettersDisplayedOnPage.size(),10, "Not 10 letters")
+        Assert.assertEquals(listOfLettersDisplayedOnPage.size(), 10, "Not 10 letters")
     }
 
     @Test
-    void TestingPaginationAfterSearch(){
+    void TestingPaginationAfterSearch() {
         driver.get("http://www.google.com")
 
         WebElement searchInput = driver.findElement(By.id("gbqfq"))
         searchInput.sendKeys("InteliJ IDEA")
         searchInput.submit()
 
-        (new WebDriverWait(driver, variableForWaiter)).until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("table[id='nav']")))
+        def waiterObject = new ChangedParams()
+        waiterObject.waitUntil("table[id='nav']", driver)
+
         List<WebElement> listNumberOfPages = driver.findElements(By.cssSelector("span.csb.gbil.ch"))
         int numberOfPages = listNumberOfPages.size()
         System.out.println("Number of pages " + listNumberOfPages.size())
 
-        assertTrue(numberOfPages>=10,"Number of pages is less than 10" )
+        assertTrue(numberOfPages >= 10, "Number of pages is less than 10")
     }
 
     @AfterTest
