@@ -1,6 +1,7 @@
 package ua.irena.playground.utils
 
 import org.openqa.selenium.WebDriver
+import org.openqa.selenium.WebElement
 import org.openqa.selenium.support.ui.ExpectedCondition
 import org.openqa.selenium.support.ui.WebDriverWait
 
@@ -10,12 +11,13 @@ import org.openqa.selenium.support.ui.WebDriverWait
 class Helpers {
     public static final long DEFAULT_WAIT = 10L
 
-    public static void waitUntil(ExpectedCondition expectedCondition, WebDriver driver) {
+    public static WebElement waitUntil(ExpectedCondition expectedCondition, WebDriver driver) {
         waitUntil(expectedCondition, DEFAULT_WAIT, driver)
     }
 
-    public static void waitUntil(ExpectedCondition expectedCondition, long timeout, WebDriver driver) {
+    public static WebElement waitUntil(ExpectedCondition expectedCondition, long timeout, WebDriver driver) {
         WebDriverWait wait = new WebDriverWait(driver, timeout)
         wait.until(expectedCondition)
     }
 }
+

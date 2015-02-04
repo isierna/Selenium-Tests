@@ -14,8 +14,9 @@ dependencies {
             'org.codehaus.groovy:groovy-all:2.3.6',
             'org.seleniumhq.selenium:selenium-java:2.44.0',
             'org.seleniumhq.selenium:selenium-chrome-driver:2.44.0',
-            'org.seleniumhq.selenium:selenium-firefox-driver:2.44.0'
-
+            'org.seleniumhq.selenium:selenium-firefox-driver:2.44.0',
+            'ru.yandex.qatools.htmlelements:htmlelements-java:1.13',
+            'ru.yandex.qatools.htmlelements:htmlelements-matchers:1.13'
 }
 
 test {

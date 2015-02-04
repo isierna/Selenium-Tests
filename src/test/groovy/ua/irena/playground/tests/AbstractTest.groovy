@@ -1,7 +1,10 @@
 package ua.irena.playground.tests
 
 import org.openqa.selenium.WebDriver
+import org.openqa.selenium.WebElement
+import org.openqa.selenium.support.ui.ExpectedCondition
 import org.testng.annotations.Listeners
+import ua.irena.playground.utils.Helpers
 import ua.irena.playground.utils.SeleniumSuiteListener
 
 /**
@@ -11,5 +14,9 @@ import ua.irena.playground.utils.SeleniumSuiteListener
 abstract class AbstractTest {
     static WebDriver getDriver() {
         SeleniumSuiteListener.driver
+    }
+
+    public WebElement waitUntil(ExpectedCondition expectedCondition) {
+        Helpers.waitUntil(expectedCondition, driver)
     }
 }

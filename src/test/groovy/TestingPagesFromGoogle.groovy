@@ -49,7 +49,6 @@ class TestingPagesFromGoogle extends ChangedParams {
         waiterObject.waitUntil("li.g", driver)
 
         List<WebElement> listOfItemsOnPage = driver.findElements(By.cssSelector("li.g"))
-        System.out.println("Number of results are " + listOfItemsOnPage.size())
 
         Assert.assertEquals(listOfItemsOnPage.size(), 10, "Results are not 10")
     }
@@ -67,8 +66,6 @@ class TestingPagesFromGoogle extends ChangedParams {
 
         List<WebElement> listOfLettersDisplayedOnPage = driver.findElements(By.cssSelector("span.csb.gbil.ch"))
 
-        System.out.println("Number of letters are " + listOfLettersDisplayedOnPage.size())
-
         Assert.assertEquals(listOfLettersDisplayedOnPage.size(), 10, "Not 10 letters")
     }
 
@@ -85,7 +82,6 @@ class TestingPagesFromGoogle extends ChangedParams {
 
         List<WebElement> listNumberOfPages = driver.findElements(By.cssSelector("span.csb.gbil.ch"))
         int numberOfPages = listNumberOfPages.size()
-        System.out.println("Number of pages " + listNumberOfPages.size())
 
         assertTrue(numberOfPages >= 10, "Number of pages is less than 10")
     }
