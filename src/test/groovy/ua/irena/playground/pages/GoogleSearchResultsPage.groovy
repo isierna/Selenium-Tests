@@ -11,15 +11,30 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElemen
  * Created by irena on 2/4/15.
  */
 class GoogleSearchResultsPage extends AbstractPage {
-    final static String LINK_TEXT = "Selenium (software) - Wikipedia, the free encyclopedia"
-    static String PAGE_TITLE = "Selenium (software) - Wikipedia, the free encyclopedia"
 
     public WebElement getLink() {
-        WebElement link = waitUntil presenceOfElementLocated(linkText(LINK_TEXT))
-        return link
+        waitUntil presenceOfElementLocated(linkText("Selenium (software) - Wikipedia, the free encyclopedia"))
     }
 
-    public atSearchResultsPage() {
-        waitUntil(presenceOfElementLocated(cssSelector('img[src*="//upload.wikimedia.org/wikipedia/en/5/5c/Seleniumlogo.png"]')))
+    public void at() {
+        waitUntil(presenceOfElementLocated(cssSelector("li.g")))
     }
+
+    public static List<WebElement> getListOfPages() {
+        getListOfElements("span.csb.gbil.ch")
+    }
+
+    public static List<WebElement> getListOfLetters() {
+        getListOfElements("span.csb.gbil.ch")
+    }
+
+    public static List<WebElement> getListOfPageResults() {
+        getListOfElements("li.g")
+    }
+
+    private static List<WebElement> getListOfElements(String selector) {
+        driver.findElements(cssSelector(selector))
+    }
+
+
 }
