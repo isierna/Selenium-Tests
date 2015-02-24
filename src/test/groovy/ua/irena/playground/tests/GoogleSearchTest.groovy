@@ -1,10 +1,12 @@
 package ua.irena.playground.tests
 
+import org.openqa.selenium.By
 import org.openqa.selenium.WebElement
 import org.testng.annotations.AfterMethod
 import org.testng.annotations.BeforeMethod
 import ua.irena.playground.pages.OfficialSeleniumPage
 import ua.irena.playground.pages.SeleniumDocumentation
+import ua.irena.playground.pages.SeleniumIntroducingWebDriverPage
 import ua.irena.playground.pages.SeleniumWikiPage
 
 import static org.testng.Assert.assertEquals
@@ -13,6 +15,8 @@ import ua.irena.playground.pages.GoogleMainPage
 import ua.irena.playground.pages.GoogleSearchResultsPage
 
 import static org.testng.Assert.assertTrue
+
+import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElementLocated
 
 /**
  * Created by irena on 2/3/15.
@@ -23,6 +27,7 @@ class GoogleSearchTest extends AbstractTest {
     GoogleSearchResultsPage resultsPage
     OfficialSeleniumPage officialSeleniumPage
     SeleniumDocumentation seleniumDocumentation
+    SeleniumIntroducingWebDriverPage seleniumIntroducingWebDriverPage
 
     @BeforeMethod
     public void openMainPage() {
@@ -112,17 +117,32 @@ class GoogleSearchTest extends AbstractTest {
 
         officialSeleniumPage.getLink("Documentation").click()
 
+
         seleniumDocumentation = new SeleniumDocumentation()
         seleniumDocumentation.at()
+        Thread.sleep(2000)
+        //WebElement javaButton = seleniumDocumentation.getJavaButton()
+        //String srcValueJavaButton = javaButton.getAttribute("src")
 
-        WebElement javaButton = seleniumDocumentation.getJavaButton()
-        String srcValueJavaButton = javaButton.getAttribute("src")
-
-        if (srcValueJavaButton == "http://www.seleniumhq.org/images/icons/java.png") {
+        /*if (srcValueJavaButton == "http://www.seleniumhq.org/images/icons/java.png") {
             javaButton.click()
-        }
+        }*/
+
+        WebElement q = seleniumDocumentation.getLink("Introducing WebDriver")
+        System.out.println("link" + q.getAttribute("src"))
+        q.click()
+
+        seleniumIntroducingWebDriverPage = new SeleniumIntroducingWebDriverPage()
+        seleniumIntroducingWebDriverPage.at()
+
+        WebElement text = seleniumIntroducingWebDriverPage.text()
+        String a = text.getText()
+
+        System.out.println(a)
 
     }
 }
+
+
 
 

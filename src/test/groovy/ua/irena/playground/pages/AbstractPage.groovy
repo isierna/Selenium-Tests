@@ -7,6 +7,7 @@ import ua.irena.playground.utils.Helpers
 import ua.irena.playground.utils.SeleniumSuiteListener
 
 import static org.openqa.selenium.By.linkText
+import static org.openqa.selenium.By.partialLinkText
 import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElementLocated
 
 /**
@@ -20,6 +21,10 @@ abstract class AbstractPage {
 
     public static WebElement getLink(String linktext) {
         waitUntil presenceOfElementLocated(linkText(linktext))
+    }
+
+    public static WebElement getLinkByPartialText(String linktext) {
+        waitUntil(presenceOfElementLocated(partialLinkText(linktext)))
     }
 
     public static def waitUntil(ExpectedCondition expectedCondition) {
