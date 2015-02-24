@@ -6,6 +6,9 @@ import org.openqa.selenium.support.ui.ExpectedCondition
 import ua.irena.playground.utils.Helpers
 import ua.irena.playground.utils.SeleniumSuiteListener
 
+import static org.openqa.selenium.By.linkText
+import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElementLocated
+
 /**
  * Created by irena on 2/3/15.
  */
@@ -15,9 +18,14 @@ abstract class AbstractPage {
 
     void at() {}
 
-    public WebElement waitUntil(ExpectedCondition expectedCondition) {
+    public static WebElement getLink(String linktext) {
+        waitUntil presenceOfElementLocated(linkText(linktext))
+    }
+
+    public static def waitUntil(ExpectedCondition expectedCondition) {
         Helpers.waitUntil(expectedCondition, driver)
     }
+
 
     static WebDriver getDriver() {
         SeleniumSuiteListener.driver

@@ -3,6 +3,8 @@ package ua.irena.playground.tests
 import org.openqa.selenium.WebElement
 import org.testng.annotations.AfterMethod
 import org.testng.annotations.BeforeMethod
+import ua.irena.playground.pages.OfficialSeleniumPage
+import ua.irena.playground.pages.SeleniumDocumentation
 import ua.irena.playground.pages.SeleniumWikiPage
 
 import static org.testng.Assert.assertEquals
@@ -19,6 +21,8 @@ class GoogleSearchTest extends AbstractTest {
 
     GoogleMainPage page
     GoogleSearchResultsPage resultsPage
+    OfficialSeleniumPage officialSeleniumPage
+    SeleniumDocumentation seleniumDocumentation
 
     @BeforeMethod
     public void openMainPage() {
@@ -45,7 +49,7 @@ class GoogleSearchTest extends AbstractTest {
         resultsPage = new GoogleSearchResultsPage()
         resultsPage.at()
 
-        def link = resultsPage.getLink()
+        def link = resultsPage.getLink("Selenium (software) - Wikipedia, the free encyclopedia")
         link.click()
 
         SeleniumWikiPage wikiPage = new SeleniumWikiPage()
@@ -68,7 +72,7 @@ class GoogleSearchTest extends AbstractTest {
     }
 
     @Test
-    void numberOfPagesInPagination(){
+    void numberOfPagesInPagination() {
         page.searchInput.sendKeys("InteliJ IDEA")
         page.searchInput.submit()
 
@@ -76,11 +80,11 @@ class GoogleSearchTest extends AbstractTest {
         resultsPage.at()
         int pagesFound = resultsPage.getListOfPages().size()
 
-        assertTrue(pagesFound>=10,"Number of pages is less than 10" )
+        assertTrue(pagesFound >= 10, "Number of pages is less than 10")
     }
 
     @Test
-    void confirmingNumberOfResultsAfterSearch(){
+    void confirmingNumberOfResultsAfterSearch() {
         page.searchInput.sendKeys("Web Driver")
         page.searchInput.submit()
 
@@ -90,6 +94,33 @@ class GoogleSearchTest extends AbstractTest {
         List<WebElement> listPageResults = resultsPage.getListOfPageResults()
 
         assertEquals(listPageResults.size(), 10, "Results are not 10")
+
+    }
+
+    @Test
+    void findOfficialSeleniumSite() {
+        page.searchInput.sendKeys("selenium")
+        page.searchInput.submit()
+
+        resultsPage = new GoogleSearchResultsPage()
+        resultsPage.at()
+
+        resultsPage.getSeleniumLink('a[href*="www.seleniumhq.org"]').click()
+
+        officialSeleniumPage = new OfficialSeleniumPage()
+        officialSeleniumPage.at()
+
+        officialSeleniumPage.getLink("Documentation").click()
+
+        seleniumDocumentation = new SeleniumDocumentation()
+        seleniumDocumentation.at()
+
+        WebElement javaButton = seleniumDocumentation.getJavaButton()
+        String srcValueJavaButton = javaButton.getAttribute("src")
+
+        if (srcValueJavaButton == "http://www.seleniumhq.org/images/icons/java.png") {
+            javaButton.click()
+        }
 
     }
 }

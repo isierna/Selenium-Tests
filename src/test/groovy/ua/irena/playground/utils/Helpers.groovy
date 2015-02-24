@@ -11,11 +11,11 @@ import org.openqa.selenium.support.ui.WebDriverWait
 class Helpers {
     public static final long DEFAULT_WAIT = 10L
 
-    public static WebElement waitUntil(ExpectedCondition expectedCondition, WebDriver driver) {
+    public static def waitUntil(ExpectedCondition expectedCondition, WebDriver driver) {
         waitUntil(expectedCondition, DEFAULT_WAIT, driver)
     }
 
-    public static WebElement waitUntil(ExpectedCondition expectedCondition, long timeout, WebDriver driver) {
+    public static def waitUntil(ExpectedCondition expectedCondition, long timeout, WebDriver driver) {
         WebDriverWait wait = new WebDriverWait(driver, timeout)
         wait.until(expectedCondition)
     }
