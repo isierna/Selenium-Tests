@@ -7,7 +7,10 @@ import ua.irena.playground.utils.SeleniumSuiteListener
 
 import static org.openqa.selenium.By.cssSelector
 import static org.openqa.selenium.By.linkText
+import static org.openqa.selenium.support.ui.ExpectedConditions.elementToBeClickable
 import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElementLocated
+import static org.openqa.selenium.support.ui.ExpectedConditions.titleIs
+
 /**
  * Created by irena on 2/3/15.
  */
@@ -31,6 +34,9 @@ abstract class AbstractPage {
 
     public static def waitUntil(ExpectedCondition expectedCondition) {
         Helpers.waitUntil(expectedCondition, driver)
+    }
+    public static void elementIsClickable(WebElement link ) {
+        waitUntil(elementToBeClickable(link))
     }
 
 

@@ -1,6 +1,7 @@
 package ua.irena.playground.tests
 
 import org.openqa.selenium.WebElement
+import org.openqa.selenium.support.ui.ExpectedCondition
 import org.testng.annotations.AfterMethod
 import org.testng.annotations.BeforeMethod
 import ua.irena.playground.pages.OfficialSeleniumPage
@@ -119,6 +120,10 @@ class GoogleSearchTest extends AbstractTest {
         seleniumDocumentation.at()
         String srcValueJavaButton = seleniumDocumentation.getJavaButton().getAttribute("src")
         seleniumDocumentation.selectingJavaLanguageOnlyIfNotSelected(srcValueJavaButton)
+
+        WebElement linkIntroducingWebDriver = seleniumDocumentation.getLinkByLinkText("Introducing WebDriver")
+        seleniumDocumentation.elementIsClickable(linkIntroducingWebDriver)
+        linkIntroducingWebDriver.click()
 
     }
 }
