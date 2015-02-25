@@ -8,14 +8,10 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElemen
 /**
  * Created by isierna on 2/24/2015.
  */
-class SeleniumIntroducingWebDriverPage extends AbstractPage{
+class SeleniumIntroducingWebDriverPage extends AbstractPage {
 
     @Override
-    public void at(){
-        waitUntil(presenceOfElementLocated(By.xpath("//*[@id=\"introducing-webdriver\"]/h2/text()")))
+    public void at() {
+        waitUntil(presenceOfElementLocated(By.cssSelector("#introducing-webdriver")))
     }
-
-    /*public static WebElement text(){
-        presenceOfElementLocated(By.tagName("body"))
-    }*/
 }

@@ -1,4 +1,6 @@
 package ua.irena.playground.pages
+
+import org.openqa.selenium.By
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.WebElement
 import org.openqa.selenium.support.ui.ExpectedCondition
@@ -39,6 +41,9 @@ abstract class AbstractPage {
         waitUntil(elementToBeClickable(link))
     }
 
+    public static String getPageText(){
+        driver.findElement(By.tagName("body")).getText()
+    }
 
     static WebDriver getDriver() {
         SeleniumSuiteListener.driver
