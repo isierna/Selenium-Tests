@@ -15,7 +15,7 @@ class SeleniumIntroducingWebDriverPage extends AbstractPage{
         waitUntil(presenceOfElementLocated(By.xpath("//*[@id=\"introducing-webdriver\"]/h2/text()")))
     }
 
-    public static WebElement text(){
+    /*public static WebElement text(){
         presenceOfElementLocated(By.tagName("body"))
-    }
+    }*/
 }

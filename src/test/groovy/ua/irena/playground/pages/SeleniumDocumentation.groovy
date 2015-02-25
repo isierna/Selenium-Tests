@@ -21,4 +21,10 @@ class SeleniumDocumentation extends AbstractPage{
         waitUntil(presenceOfElementLocated(cssSelector('input[type="image"][value="java"]')))
     }
 
+    public static void selectingJavaLanguageOnlyIfNotSelected(String srcValueJavaButton){
+        if (srcValueJavaButton == "http://www.seleniumhq.org/images/icons/java.png") {
+            javaButton.click()
+        }
+    }
+
 }

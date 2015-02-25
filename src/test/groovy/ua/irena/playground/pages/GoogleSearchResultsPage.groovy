@@ -13,7 +13,7 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElemen
  */
 class GoogleSearchResultsPage extends AbstractPage {
 
-//    public static WebElement getLink(String linktext) {
+//    public static WebElement getLinkByLinkText(String linktext) {
 //        waitUntil presenceOfElementLocated(linkText(linktext))
 //    }
 
@@ -34,7 +34,5 @@ class GoogleSearchResultsPage extends AbstractPage {
         waitUntil(presenceOfAllElementsLocatedBy(cssSelector("li.g")))
     }
 
-    public static WebElement getSeleniumLink(String link) {
-        waitUntil(presenceOfElementLocated(cssSelector(link)))
-    }
+
 }
