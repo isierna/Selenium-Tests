@@ -128,16 +128,6 @@ class GoogleSearchTest extends AbstractTest {
         seleniumDocumentation.elementIsClickable(linkIntroducingWebDriver)
         driver.get(linkIntroducingWebDriver.getAttribute("href"))
 
-        /*WebElement a = seleniumDocumentation.getLinkByCssSelector('a[href="03_webdriver.jsp#introducing-webdriver"]')
-        System.out.println(a.getAttribute("href"))
-        a.click()*/
-        /*String cssSelector="a[href=\"03_webdriver.jsp#introducing-webdriver\"]";
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("var x=(\'"+cssSelector+"\');");
-        stringBuilder.append("x.click()");
-        js.executeScript(stringBuilder.toString());*/
-
         seleniumIntroducingWebDriverPage = new SeleniumIntroducingWebDriverPage()
         seleniumIntroducingWebDriverPage.at()
         String b = seleniumIntroducingWebDriverPage.getPageText()
