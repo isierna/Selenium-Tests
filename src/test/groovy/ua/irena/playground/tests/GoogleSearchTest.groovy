@@ -2,7 +2,10 @@ package ua.irena.playground.tests
 
 import org.openqa.selenium.By
 import org.openqa.selenium.JavascriptExecutor
+import org.openqa.selenium.Keys
 import org.openqa.selenium.WebElement
+import org.openqa.selenium.interactions.Keyboard
+import org.openqa.selenium.interactions.SendKeysAction
 import org.openqa.selenium.support.ui.ExpectedCondition
 import org.testng.annotations.AfterMethod
 import org.testng.annotations.BeforeMethod
@@ -10,7 +13,9 @@ import ua.irena.playground.pages.OfficialSeleniumPage
 import ua.irena.playground.pages.SeleniumDocumentation
 import ua.irena.playground.pages.SeleniumIntroducingWebDriverPage
 import ua.irena.playground.pages.SeleniumWikiPage
+import org.openqa.selenium.interactions.internal.KeysRelatedAction
 
+import java.security.Key
 
 import static org.testng.Assert.assertEquals
 import org.testng.annotations.Test
@@ -128,15 +133,6 @@ class GoogleSearchTest extends AbstractTest {
         seleniumDocumentation.elementIsClickable(linkIntroducingWebDriver)
         driver.get(linkIntroducingWebDriver.getAttribute("href"))
 
-        /*WebElement a = seleniumDocumentation.getLinkByCssSelector('a[href="03_webdriver.jsp#introducing-webdriver"]')
-        System.out.println(a.getAttribute("href"))
-        a.click()*/
-        /*String cssSelector="a[href=\"03_webdriver.jsp#introducing-webdriver\"]";
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("var x=(\'"+cssSelector+"\');");
-        stringBuilder.append("x.click()");
-        js.executeScript(stringBuilder.toString());*/
 
         seleniumIntroducingWebDriverPage = new SeleniumIntroducingWebDriverPage()
         seleniumIntroducingWebDriverPage.at()
