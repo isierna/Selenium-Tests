@@ -30,6 +30,10 @@ abstract class AbstractPage {
         waitUntil(presenceOfElementLocated(cssSelector(link)))
     }
 
+    public static WebElement getElementByCssSelector(String selector) {
+        waitUntil(presenceOfElementLocated(cssSelector(selector)))
+    }
+
     /*public static WebElement getLinkByPartialText(String linktext) {
         waitUntil(presenceOfElementLocated(partialLinkText(linktext)))
     }*/
