@@ -13,9 +13,9 @@ import static org.openqa.selenium.By.cssSelector
  * Created by isierna on 3/3/2015.
  */
 class MailruRegistrationPage extends AbstractPage {
-    String dateSelector = "select.days.mt0.mb0.qc-select-day"
-    String monthSelector = "select.fll.months.mt0.mb0.qc-select-month"
-    String yearSelector = "select.flr.years.mt0.mb0.qc-select-year"
+    String date = "select.days.mt0.mb0.qc-select-day"
+    String month = "select.fll.months.mt0.mb0.qc-select-month"
+    String year = "select.flr.years.mt0.mb0.qc-select-year"
     String toggleMaleGenderSelector = '#man1'
     static String submitButtonSelector = 'button.btn.btn_signup.js-submit'
     static String captchaPopupSelector = 'div.popup__box'

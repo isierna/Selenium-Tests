@@ -1,7 +1,5 @@
 package ua.irena.playground.tests
 
-import org.apache.commons.lang.RandomStringUtils
-import org.openqa.selenium.WebElement
 import org.testng.annotations.Test
 import org.testng.annotations.AfterMethod
 import org.testng.annotations.BeforeMethod
@@ -40,9 +38,9 @@ class MailRuRegistrationTest extends AbstractTest {
         registrationPage.populateField(0, registrationPage.randomString)
         registrationPage.populateField(1, registrationPage.randomString)
 
-        registrationPage.setBirthDate(registrationPage.dateSelector, 1) //dateSelector
-        registrationPage.setBirthDate(registrationPage.monthSelector, 1) //monthSelector
-        registrationPage.setBirthDate(registrationPage.yearSelector, 25) //yearSelector
+        registrationPage.setBirthDate(registrationPage.date, 1)
+        registrationPage.setBirthDate(registrationPage.month, 1)
+        registrationPage.setBirthDate(registrationPage.year, 25)
 
         registrationPage.getElementByCssSelector(registrationPage.toggleMaleGenderSelector).click()
 
