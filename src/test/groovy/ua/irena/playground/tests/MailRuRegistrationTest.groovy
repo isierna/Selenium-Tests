@@ -31,22 +31,14 @@ class MailRuRegistrationTest extends AbstractTest {
 
     @Test
     void emailRegistration() {
-        def registrationLink = page.getLinkByCssSelector(page.linkToMailRegistrationSelector)
+        def registrationLink = page.getRegistrationLink()
         registrationLink.click()
 
         registrationPage = new MailruRegistrationPage()
         registrationPage.at()
 
-
-        RandomStringUtils randomObject = new RandomStringUtils()
-        String randomString = randomObject.randomAlphabetic(7)
-        String randomNumber = randomObject.randomNumeric(3)
-
-
-        List<WebElement> listOfFields = registrationPage.getListOfFields()
-        listOfFields.size()
-        listOfFields[0].sendKeys(randomString)
-        listOfFields[1].sendKeys(randomString)
+        registrationPage.populateField(0, registrationPage.randomString)
+        registrationPage.populateField(1, registrationPage.randomString)
 
         registrationPage.setBirthDate(registrationPage.dateSelector, 1) //dateSelector
         registrationPage.setBirthDate(registrationPage.monthSelector, 1) //monthSelector
@@ -54,14 +46,13 @@ class MailRuRegistrationTest extends AbstractTest {
 
         registrationPage.getElementByCssSelector(registrationPage.toggleMaleGenderSelector).click()
 
-        listOfFields[3].sendKeys("cheburawka" + randomNumber)
-        listOfFields[3].sendKeys("ddd")
-        listOfFields[4].sendKeys("&&&" + randomString)
-        listOfFields[5].sendKeys("&&&" + randomString)
+        registrationPage.populateField(3, "cheburawka" + registrationPage.randomNumber)
+        registrationPage.populateField(3, "ddd")
+        registrationPage.populateField(4, "&&&" + registrationPage.randomString)
+        registrationPage.populateField(5, "&&&" + registrationPage.randomString)
 
-        registrationPage.getElementByCssSelector(registrationPage.submitButtonSelector).submit()
+        registrationPage.getSubmitButton().submit()
 
-        Boolean popUpShown = registrationPage.getElementByCssSelector(registrationPage.captchaPopupSelector)
-        assertTrue(popUpShown, "Pop-up with captcha is not shown")
+        assertTrue(registrationPage.getCaptchaPopup(), "Pop-up with captcha is not shown")
     }
 }
