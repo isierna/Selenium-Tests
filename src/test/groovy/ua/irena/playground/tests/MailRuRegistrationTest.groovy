@@ -31,7 +31,7 @@ class MailRuRegistrationTest extends AbstractTest {
 
     @Test
     void emailRegistration() {
-        def registrationLink = page.getLinkByCssSelector('a.mailbox__register__link')
+        def registrationLink = page.getLinkByCssSelector(page.linkToMailRegistrationSelector)
         registrationLink.click()
 
         registrationPage = new MailruRegistrationPage()
@@ -48,20 +48,20 @@ class MailRuRegistrationTest extends AbstractTest {
         listOfFields[0].sendKeys(randomString)
         listOfFields[1].sendKeys(randomString)
 
-        registrationPage.setBirthDate("select.days.mt0.mb0.qc-select-day", 1) //date
-        registrationPage.setBirthDate("select.fll.months.mt0.mb0.qc-select-month", 1) //month
-        registrationPage.setBirthDate("select.flr.years.mt0.mb0.qc-select-year", 25) //year
+        registrationPage.setBirthDate(registrationPage.dateSelector, 1) //dateSelector
+        registrationPage.setBirthDate(registrationPage.monthSelector, 1) //monthSelector
+        registrationPage.setBirthDate(registrationPage.yearSelector, 25) //yearSelector
 
-        registrationPage.getElementByCssSelector('#man1').click()
+        registrationPage.getElementByCssSelector(registrationPage.toggleMaleGenderSelector).click()
 
         listOfFields[3].sendKeys("cheburawka" + randomNumber)
         listOfFields[3].sendKeys("ddd")
         listOfFields[4].sendKeys("&&&" + randomString)
         listOfFields[5].sendKeys("&&&" + randomString)
 
-        registrationPage.getElementByCssSelector('button.btn.btn_signup.js-submit').submit()
+        registrationPage.getElementByCssSelector(registrationPage.submitButtonSelector).submit()
 
-        Boolean popUpShown = registrationPage.getElementByCssSelector('div.popup__box')
+        Boolean popUpShown = registrationPage.getElementByCssSelector(registrationPage.captchaPopupSelector)
         assertTrue(popUpShown, "Pop-up with captcha is not shown")
     }
 }

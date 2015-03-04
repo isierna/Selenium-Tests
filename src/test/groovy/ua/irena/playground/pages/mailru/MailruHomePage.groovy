@@ -11,6 +11,7 @@ import ru.yandex.qatools.htmlelements.loader.HtmlElementLoader
  * Created by isierna on 3/2/2015.
  */
 class MailruHomePage extends AbstractPage{
+    String linkToMailRegistrationSelector = 'a.mailbox__register__link'
 
     @Override
     public void go(){
