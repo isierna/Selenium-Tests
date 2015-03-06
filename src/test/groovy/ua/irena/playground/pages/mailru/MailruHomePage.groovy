@@ -2,8 +2,10 @@ package ua.irena.playground.pages.mailru
 
 
 import org.openqa.selenium.WebElement
-
+import org.openqa.selenium.support.FindBy
+import ru.yandex.qatools.htmlelements.loader.HtmlElementLoader
 import ua.irena.playground.pages.AbstractPage
+import ua.irena.playground.utils.Helpers
 
 import static org.openqa.selenium.By.cssSelector
 import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElementLocated
@@ -13,7 +15,14 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElemen
  * Created by isierna on 3/2/2015.
  */
 class MailruHomePage extends AbstractPage {
-    static String linkToMailRegistrationSelector = 'a.mailbox__register__link'
+    final static String LINK_TO_MAIL_REGISTRATION_SELECTOR = 'a.mailbox__register__link'
+
+    @FindBy(css = MailruHomePage.LINK_TO_MAIL_REGISTRATION_SELECTOR)
+    WebElement linkToMailRegistrationPage
+
+    MailruHomePage() {
+        HtmlElementLoader.populatePageObject(this, driver)
+    }
 
     @Override
     public void go() {
@@ -23,10 +32,7 @@ class MailruHomePage extends AbstractPage {
 
     @Override
     public void at() {
-        waitUntil(presenceOfElementLocated(cssSelector('a.mailbox__register__link')))
-    }
-
-    public static WebElement getRegistrationLink() {
-        getLinkByCssSelector(linkToMailRegistrationSelector)
+        Helpers.waitUntil(presenceOfElementLocated(cssSelector(LINK_TO_MAIL_REGISTRATION_SELECTOR)))
     }
 }
+

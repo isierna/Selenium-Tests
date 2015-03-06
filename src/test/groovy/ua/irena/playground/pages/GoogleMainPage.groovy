@@ -3,6 +3,7 @@ package ua.irena.playground.pages
 import org.openqa.selenium.WebElement
 import org.openqa.selenium.support.FindBy
 import ru.yandex.qatools.htmlelements.loader.HtmlElementLoader
+import ua.irena.playground.utils.Helpers
 
 import static org.openqa.selenium.By.cssSelector
 import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElementLocated
@@ -28,11 +29,7 @@ class GoogleMainPage extends AbstractPage {
 
     @Override
     public void at() {
-        waitUntil presenceOfElementLocated(cssSelector(SEARCH_INPUT_SELECTOR))
+        Helpers.waitUntil presenceOfElementLocated(cssSelector(SEARCH_INPUT_SELECTOR))
     }
-
-//    public WebElement getSearchInput() {
-//        driver.findElement(cssSelector(SEARCH_INPUT_SELECTOR))
-//    }
 }
 

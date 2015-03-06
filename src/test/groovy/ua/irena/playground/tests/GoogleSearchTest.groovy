@@ -1,29 +1,13 @@
 package ua.irena.playground.tests
 
-import org.openqa.selenium.By
-import org.openqa.selenium.JavascriptExecutor
-import org.openqa.selenium.Keys
 import org.openqa.selenium.WebElement
-import org.openqa.selenium.interactions.Keyboard
-import org.openqa.selenium.interactions.SendKeysAction
-import org.openqa.selenium.support.ui.ExpectedCondition
 import org.testng.annotations.AfterMethod
 import org.testng.annotations.BeforeMethod
-import ua.irena.playground.pages.OfficialSeleniumPage
-import ua.irena.playground.pages.SeleniumDocumentation
-import ua.irena.playground.pages.SeleniumIntroducingWebDriverPage
-import ua.irena.playground.pages.SeleniumWikiPage
-import org.openqa.selenium.interactions.internal.KeysRelatedAction
-
-import java.security.Key
+import org.testng.annotations.Test
+import ua.irena.playground.pages.*
 
 import static org.testng.Assert.assertEquals
-import org.testng.annotations.Test
-import ua.irena.playground.pages.GoogleMainPage
-import ua.irena.playground.pages.GoogleSearchResultsPage
-
 import static org.testng.Assert.assertTrue
-
 /**
  * Created by irena on 2/3/15.
  */
@@ -59,9 +43,7 @@ class GoogleSearchTest extends AbstractTest {
 
         resultsPage = new GoogleSearchResultsPage()
         resultsPage.at()
-
-        def link = resultsPage.getLinkByLinkText("Selenium (software) - Wikipedia, the free encyclopedia")
-        link.click()
+        resultsPage.goToSeleniumWikiPage()
 
         SeleniumWikiPage wikiPage = new SeleniumWikiPage()
         wikiPage.at()
@@ -116,12 +98,12 @@ class GoogleSearchTest extends AbstractTest {
         resultsPage = new GoogleSearchResultsPage()
         resultsPage.at()
 
-        resultsPage.getLinkByCssSelector('a[href*="www.seleniumhq.org"]').click()
+        resultsPage.Helpers.getLinkByCssSelector('a[href*="www.seleniumhq.org"]').click()
 
         officialSeleniumPage = new OfficialSeleniumPage()
         officialSeleniumPage.at()
 
-        officialSeleniumPage.getLinkByLinkText("Documentation").click()
+        officialSeleniumPage.Helpers.getLinkByLinkText("Documentation").click()
 
 
         seleniumDocumentation = new SeleniumDocumentation()

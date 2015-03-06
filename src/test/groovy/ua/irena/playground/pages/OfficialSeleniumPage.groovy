@@ -1,5 +1,7 @@
 package ua.irena.playground.pages
 
+import ua.irena.playground.utils.Helpers
+
 import static org.openqa.selenium.By.cssSelector
 import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElementLocated
 
@@ -10,8 +12,8 @@ class OfficialSeleniumPage extends AbstractPage{
 
     @Override
     public void at() {
-        waitUntil(presenceOfElementLocated(cssSelector("#menu_about")))
-        waitUntil(presenceOfElementLocated(cssSelector("#menu_documentation")))
-        waitUntil(presenceOfElementLocated(cssSelector('img[src="/images/big-logo.png"]')))
+        Helpers.waitUntil(presenceOfElementLocated(cssSelector("#menu_about")))
+        Helpers.waitUntil(presenceOfElementLocated(cssSelector("#menu_documentation")))
+        Helpers.waitUntil(presenceOfElementLocated(cssSelector('img[src="/images/big-logo.png"]')))
     }
 }

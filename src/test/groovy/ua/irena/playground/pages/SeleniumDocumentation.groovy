@@ -1,6 +1,7 @@
 package ua.irena.playground.pages
 
 import org.openqa.selenium.WebElement
+import ua.irena.playground.utils.Helpers
 
 import static org.openqa.selenium.By.cssSelector
 import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElementLocated
@@ -14,11 +15,11 @@ class SeleniumDocumentation extends AbstractPage{
 
     @Override
     public void at() {
-        waitUntil(titleIs("Selenium Documentation — Selenium Documentation"))
+        Helpers.waitUntil(titleIs("Selenium Documentation — Selenium Documentation"))
     }
 
     public static WebElement getJavaButton() {
-        waitUntil(presenceOfElementLocated(cssSelector('input[type="image"][value="java"]')))
+        Helpers.waitUntil(presenceOfElementLocated(cssSelector('input[type="image"][value="java"]')))
     }
 
     public static void selectingJavaLanguageOnlyIfNotSelected(String srcValueJavaButton){
