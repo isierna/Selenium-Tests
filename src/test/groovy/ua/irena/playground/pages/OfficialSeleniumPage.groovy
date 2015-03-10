@@ -8,12 +8,15 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElemen
 /**
  * Created by irena on 2/9/15.
  */
-class OfficialSeleniumPage extends AbstractPage{
-
+class OfficialSeleniumPage extends AbstractPage {
     @Override
     public void at() {
         Helpers.waitUntil(presenceOfElementLocated(cssSelector("#menu_about")))
         Helpers.waitUntil(presenceOfElementLocated(cssSelector("#menu_documentation")))
         Helpers.waitUntil(presenceOfElementLocated(cssSelector('img[src="/images/big-logo.png"]')))
+    }
+
+    public static getLinkToDocumentationPage() {
+        Helpers.getLinkByLinkText("Documentation")
     }
 }

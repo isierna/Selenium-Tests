@@ -33,4 +33,8 @@ class GoogleSearchResultsPage extends AbstractPage {
     public static List<WebElement> getListOfPageResults() {
         Helpers.waitUntil(presenceOfAllElementsLocatedBy(cssSelector("li.g")))
     }
+
+    public static getOfficialSeleniumPageLink() {
+        Helpers.getLinkByCssSelector('a[href*="www.seleniumhq.org"]')
+    }
 }

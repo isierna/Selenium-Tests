@@ -7,12 +7,12 @@ import ua.irena.playground.utils.Helpers
 
 import static org.openqa.selenium.By.cssSelector
 import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElementLocated
+
 /**
  * Created by irena on 2/3/15.
  */
 class GoogleMainPage extends AbstractPage {
     final static String SEARCH_INPUT_SELECTOR = 'input[name="q"]'
-
 
     @FindBy(css = GoogleMainPage.SEARCH_INPUT_SELECTOR)
     WebElement searchInput

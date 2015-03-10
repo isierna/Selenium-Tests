@@ -1,14 +1,17 @@
 package ua.irena.playground.tests
+
 import org.testng.annotations.AfterMethod
 import org.testng.annotations.BeforeMethod
 import org.testng.annotations.Test
 import ua.irena.playground.pages.mailru.MailruHomePage
 import ua.irena.playground.pages.mailru.MailruRegistrationPage
+
+import static org.testng.Assert.assertTrue
+
 /**
  * Created by isierna on 2/27/2015.
  */
 class MailRuRegistrationTest extends AbstractTest {
-
     MailruHomePage homePage
     MailruRegistrationPage registrationPage
 
@@ -35,8 +38,7 @@ class MailRuRegistrationTest extends AbstractTest {
         registrationPage.toggleMale.click()
 
         registrationPage.submitButton.submit()
-        //Boolean captchaPopUpDisplayed = registrationPage.captchaPopup
-        //assertTrue(registrationPage.isElementPresent, "Pop-up with captcha is not shown")
-        Thread.sleep(2000)
+
+        assertTrue(registrationPage.captchaPopup as boolean, "Pop-up with captcha is not shown")
     }
 }

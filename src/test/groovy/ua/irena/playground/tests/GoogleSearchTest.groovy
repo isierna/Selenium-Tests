@@ -5,6 +5,7 @@ import org.testng.annotations.AfterMethod
 import org.testng.annotations.BeforeMethod
 import org.testng.annotations.Test
 import ua.irena.playground.pages.*
+import ua.irena.playground.utils.Helpers
 
 import static org.testng.Assert.assertEquals
 import static org.testng.Assert.assertTrue
@@ -12,7 +13,6 @@ import static org.testng.Assert.assertTrue
  * Created by irena on 2/3/15.
  */
 class GoogleSearchTest extends AbstractTest {
-
     GoogleMainPage page
     GoogleSearchResultsPage resultsPage
     OfficialSeleniumPage officialSeleniumPage
@@ -98,29 +98,22 @@ class GoogleSearchTest extends AbstractTest {
         resultsPage = new GoogleSearchResultsPage()
         resultsPage.at()
 
-        resultsPage.Helpers.getLinkByCssSelector('a[href*="www.seleniumhq.org"]').click()
+        resultsPage.getOfficialSeleniumPageLink().click()
 
         officialSeleniumPage = new OfficialSeleniumPage()
         officialSeleniumPage.at()
 
-        officialSeleniumPage.Helpers.getLinkByLinkText("Documentation").click()
-
+        officialSeleniumPage.getLinkToDocumentationPage().click()
 
         seleniumDocumentation = new SeleniumDocumentation()
         seleniumDocumentation.at()
-        String srcValueJavaButton = seleniumDocumentation.getJavaButton().getAttribute("src")
-        seleniumDocumentation.selectingJavaLanguageOnlyIfNotSelected(srcValueJavaButton)
-
-        WebElement linkIntroducingWebDriver = seleniumDocumentation.getLinkByLinkText("Introducing WebDriver")
-        seleniumDocumentation.elementIsClickable(linkIntroducingWebDriver)
-        driver.get(linkIntroducingWebDriver.getAttribute("href"))
-
+        seleniumDocumentation.selectingJavaLanguageOnlyIfNotSelected()
 
         seleniumIntroducingWebDriverPage = new SeleniumIntroducingWebDriverPage()
+        seleniumIntroducingWebDriverPage.go()
         seleniumIntroducingWebDriverPage.at()
-        String b = seleniumIntroducingWebDriverPage.getPageText()
-        assertTrue(b.contains("org.seleniumhq.selenium"))
-
+        String pageText = Helpers.getPageText()
+        assertTrue(pageText.contains("org.seleniumhq.selenium"))
     }
 }
 

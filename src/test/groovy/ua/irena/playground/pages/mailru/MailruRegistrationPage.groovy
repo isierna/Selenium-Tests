@@ -15,39 +15,29 @@ import static org.openqa.selenium.By.cssSelector
  * Created by isierna on 3/3/2015.
  */
 class MailruRegistrationPage extends AbstractPage {
-    final static String TOGGLE_MALE_GENDER_SELECTOR = '#man1'
-    final static String SUBMIT_BUTTON_SELECTOR = 'button.btn.btn_signup.js-submit'
-    final static String CAPTCHA_POPUP_SELECTOR = 'button.btn.btn.stylish.btn_main.confirm-ok"'
-    final static String NAME_SELECTOR = 'div.vmi.tac.mb14.t0.vt.qc-firstname-row input'
-    final static String SURNAME_SELECTOR = 'div.vmi.tac.mb14.t0.vt.qc-lastname-row input'
-    final static String EMAIL_ADDRESS = 'div.pRel.vmi.tac.mb14.t0.vt.login-field.qc-login-row input'
-    final static String PASSWORD = 'div.vmi.tac.mb14.t0.vt.qc-pass-row input'
-    final static String CONFIRMATION_PASSWORD ='div.vmi.tac.mb34.t0.qc-passverify-row input'
-
-    @FindBy(css = MailruRegistrationPage.TOGGLE_MALE_GENDER_SELECTOR)
+    @FindBy(css = '#man1')
     WebElement toggleMale
 
-    @FindBy(css = MailruRegistrationPage.SUBMIT_BUTTON_SELECTOR)
+    @FindBy(css = 'button.btn.btn_signup.js-submit')
     WebElement submitButton
 
-    @FindBy(css = MailruRegistrationPage.CAPTCHA_POPUP_SELECTOR)
+    @FindBy(css = 'button.btn.btn.stylish.btn_main.confirm-ok')
     WebElement captchaPopup
 
-    @FindBy(css = MailruRegistrationPage.NAME_SELECTOR)
+    @FindBy(css = 'div.vmi.tac.mb14.t0.vt.qc-firstname-row input')
     WebElement userName
 
-    @FindBy(css = MailruRegistrationPage.SURNAME_SELECTOR)
+    @FindBy(css = 'div.vmi.tac.mb14.t0.vt.qc-lastname-row input')
     WebElement userSurname
 
-    @FindBy(css = MailruRegistrationPage.EMAIL_ADDRESS)
+    @FindBy(css = 'div.pRel.vmi.tac.mb14.t0.vt.login-field.qc-login-row input')
     WebElement emailAddress
 
-    @FindBy(css = MailruRegistrationPage.PASSWORD)
+    @FindBy(css = 'div.vmi.tac.mb14.t0.vt.qc-pass-row input')
     WebElement password
 
-    @FindBy(css = MailruRegistrationPage.CONFIRMATION_PASSWORD)
+    @FindBy(css = 'div.vmi.tac.mb34.t0.qc-passverify-row input')
     WebElement confirmationPassword
-
 
     MailruRegistrationPage() {
         HtmlElementLoader.populatePageObject(this, driver)
@@ -69,13 +59,11 @@ class MailruRegistrationPage extends AbstractPage {
 
     public static String generateRandomString() {
         RandomStringUtils randomObject = new RandomStringUtils()
-
         randomObject.randomAlphabetic(7)
     }
 
     public static String generateRandomNumber() {
         RandomStringUtils randomObject = new RandomStringUtils()
-
         randomObject.randomNumeric(3)
     }
 

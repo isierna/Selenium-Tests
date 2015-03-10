@@ -9,11 +9,10 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElemen
  * Created by irena on 2/5/15.
  */
 class SeleniumWikiPage extends AbstractPage {
-    String imageSelenium = "img[src*='//upload.wikimedia.org/wikipedia/en/5/5c/Seleniumlogo.png']"
     static String PAGE_TITLE = "Selenium (software) - Wikipedia, the free encyclopedia"
 
     public void at() {
-        Helpers.waitUntil(presenceOfElementLocated(cssSelector(imageSelenium)))
+        Helpers.waitUntil(presenceOfElementLocated(cssSelector("img[src*='//upload.wikimedia.org/wikipedia/en/5/5c/Seleniumlogo.png']")))
     }
 }
 
