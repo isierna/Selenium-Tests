@@ -1,15 +1,12 @@
 package ua.irena.playground.tests
-
 import org.openqa.selenium.WebElement
 import org.testng.annotations.AfterMethod
 import org.testng.annotations.BeforeMethod
 import org.testng.annotations.Test
 import ua.irena.playground.pages.*
-import ua.irena.playground.utils.Helpers
 
 import static org.testng.Assert.assertEquals
 import static org.testng.Assert.assertTrue
-
 /**
  * Created by irena on 2/3/15.
  */
@@ -112,7 +109,7 @@ class GoogleSearchTest extends AbstractTest {
         seleniumIntroducingWebDriverPage = new SeleniumIntroducingWebDriverPage()
         seleniumIntroducingWebDriverPage.go()
         seleniumIntroducingWebDriverPage.at()
-        assertTrue(Helpers.getPageText().contains("org.seleniumhq.selenium"))
+        assertTrue(seleniumIntroducingWebDriverPage.getPageText().contains("org.seleniumhq.selenium"))
     }
 }
 

@@ -1,13 +1,10 @@
 package ua.irena.playground.pages
-
 import org.openqa.selenium.WebElement
 import org.openqa.selenium.support.FindBy
 import ru.yandex.qatools.htmlelements.loader.HtmlElementLoader
-import ua.irena.playground.utils.Helpers
 
 import static org.openqa.selenium.By.cssSelector
 import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElementLocated
-
 /**
  * Created by irena on 2/3/15.
  */
@@ -29,7 +26,7 @@ class GoogleMainPage extends AbstractPage {
 
     @Override
     public void at() {
-        Helpers.waitUntil(presenceOfElementLocated(cssSelector(SEARCH_INPUT_SELECTOR)), driver)
+        waitUntil(presenceOfElementLocated(cssSelector(SEARCH_INPUT_SELECTOR)), driver)
     }
 }
 
