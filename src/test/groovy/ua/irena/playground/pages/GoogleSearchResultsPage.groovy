@@ -14,27 +14,22 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElemen
 class GoogleSearchResultsPage extends AbstractPage {
     @Override
     public void at() {
-        Helpers.waitUntil(presenceOfElementLocated(cssSelector("li.g")))
-    }
-
-    public static void goToSeleniumWikiPage() {
-        def link = Helpers.getLinkByLinkText("Selenium (software) - Wikipedia, the free encyclopedia")
-        link.click()
+        Helpers.waitUntil(presenceOfElementLocated(cssSelector("li.g")), driver)
     }
 
     public static List<WebElement> getListOfPages() {
-        Helpers.waitUntil(presenceOfAllElementsLocatedBy(cssSelector("span.csb.gbil.ch")))
+        Helpers.waitUntil(presenceOfAllElementsLocatedBy(cssSelector("span.csb.gbil.ch")), driver)
     }
 
     public static List<WebElement> getListOfLetters() {
-        Helpers.waitUntil(presenceOfAllElementsLocatedBy(cssSelector("span.csb.gbil.ch")))
+        Helpers.waitUntil(presenceOfAllElementsLocatedBy(cssSelector("span.csb.gbil.ch")), driver)
     }
 
     public static List<WebElement> getListOfPageResults() {
-        Helpers.waitUntil(presenceOfAllElementsLocatedBy(cssSelector("li.g")))
+        Helpers.waitUntil(presenceOfAllElementsLocatedBy(cssSelector("li.g")), driver)
     }
 
-    public static getOfficialSeleniumPageLink() {
-        Helpers.getLinkByCssSelector('a[href*="www.seleniumhq.org"]')
+    public static WebElement getLinkToPage(String selector) {
+        Helpers.waitUntil(presenceOfElementLocated(cssSelector(selector)), driver)
     }
 }

@@ -4,6 +4,7 @@ import org.openqa.selenium.By
 import org.openqa.selenium.WebElement
 import ua.irena.playground.utils.Helpers
 
+import static org.openqa.selenium.By.linkText
 import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElementLocated
 
 /**
@@ -12,12 +13,12 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElemen
 class SeleniumIntroducingWebDriverPage extends AbstractPage {
     @Override
     public void at() {
-        Helpers.waitUntil(presenceOfElementLocated(By.cssSelector("#introducing-webdriver")))
+        Helpers.waitUntil(presenceOfElementLocated(By.cssSelector("#introducing-webdriver")), driver)
     }
 
     @Override
     public void go() {
-        WebElement linkIntroducingWebDriver = Helpers.getLinkByLinkText("Introducing WebDriver")
+        WebElement linkIntroducingWebDriver = Helpers.waitUntil(presenceOfElementLocated(linkText("Introducing WebDriver")), driver)
         driver.get(linkIntroducingWebDriver.getAttribute("href"))
     }
 }

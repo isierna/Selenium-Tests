@@ -9,6 +9,7 @@ import ua.irena.playground.utils.Helpers
 
 import static org.testng.Assert.assertEquals
 import static org.testng.Assert.assertTrue
+
 /**
  * Created by irena on 2/3/15.
  */
@@ -43,9 +44,9 @@ class GoogleSearchTest extends AbstractTest {
 
         resultsPage = new GoogleSearchResultsPage()
         resultsPage.at()
-        resultsPage.goToSeleniumWikiPage()
 
         SeleniumWikiPage wikiPage = new SeleniumWikiPage()
+        wikiPage.go()
         wikiPage.at()
 
         assertEquals(driver.getTitle(), SeleniumWikiPage.PAGE_TITLE, "Page title is not correct")
@@ -98,12 +99,11 @@ class GoogleSearchTest extends AbstractTest {
         resultsPage = new GoogleSearchResultsPage()
         resultsPage.at()
 
-        resultsPage.getOfficialSeleniumPageLink().click()
-
         officialSeleniumPage = new OfficialSeleniumPage()
-        officialSeleniumPage.at()
+        resultsPage.getLinkToPage(officialSeleniumPage.officialPageLink).click()
 
-        officialSeleniumPage.getLinkToDocumentationPage().click()
+        officialSeleniumPage.at()
+        officialSeleniumPage.getLinkToPage("Documentation").click()
 
         seleniumDocumentation = new SeleniumDocumentation()
         seleniumDocumentation.at()
@@ -112,8 +112,7 @@ class GoogleSearchTest extends AbstractTest {
         seleniumIntroducingWebDriverPage = new SeleniumIntroducingWebDriverPage()
         seleniumIntroducingWebDriverPage.go()
         seleniumIntroducingWebDriverPage.at()
-        String pageText = Helpers.getPageText()
-        assertTrue(pageText.contains("org.seleniumhq.selenium"))
+        assertTrue(Helpers.getPageText().contains("org.seleniumhq.selenium"))
     }
 }
 

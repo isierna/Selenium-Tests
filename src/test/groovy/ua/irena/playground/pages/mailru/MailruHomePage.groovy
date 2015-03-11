@@ -32,7 +32,7 @@ class MailruHomePage extends AbstractPage {
 
     @Override
     public void at() {
-        Helpers.waitUntil(presenceOfElementLocated(cssSelector(LINK_TO_MAIL_REGISTRATION_SELECTOR)))
+        Helpers.waitUntil(presenceOfElementLocated(cssSelector(LINK_TO_MAIL_REGISTRATION_SELECTOR)), driver)
     }
 }
 

@@ -8,8 +8,8 @@ import ru.yandex.qatools.htmlelements.loader.HtmlElementLoader
 import ua.irena.playground.pages.AbstractPage
 import ua.irena.playground.utils.Helpers
 
-import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElementLocated
 import static org.openqa.selenium.By.cssSelector
+import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElementLocated
 
 /**
  * Created by isierna on 3/3/2015.
@@ -20,9 +20,6 @@ class MailruRegistrationPage extends AbstractPage {
 
     @FindBy(css = 'button.btn.btn_signup.js-submit')
     WebElement submitButton
-
-    @FindBy(css = 'button.btn.btn.stylish.btn_main.confirm-ok')
-    WebElement captchaPopup
 
     @FindBy(css = 'div.vmi.tac.mb14.t0.vt.qc-firstname-row input')
     WebElement userName
@@ -45,7 +42,7 @@ class MailruRegistrationPage extends AbstractPage {
 
     @Override
     public void at() {
-        Helpers.waitUntil(presenceOfElementLocated(cssSelector('span[class="sig2"]')))
+        Helpers.waitUntil(presenceOfElementLocated(cssSelector('span[class="sig2"]')), driver)
     }
 
     public void populateInputs() {
@@ -68,12 +65,16 @@ class MailruRegistrationPage extends AbstractPage {
     }
 
     public static setBirthDate() {
-        Select dateDropDown = new Select(Helpers.getElementByCssSelector("select.days.mt0.mb0.qc-select-day"))
-        Select monthDropDown = new Select(Helpers.getElementByCssSelector("select.fll.months.mt0.mb0.qc-select-month"))
-        Select yearDropDown = new Select(Helpers.getElementByCssSelector("select.flr.years.mt0.mb0.qc-select-year"))
+        Select dateDropDown = new Select(Helpers.waitUntil(presenceOfElementLocated(cssSelector("select.days.mt0.mb0.qc-select-day")), driver))
+        Select monthDropDown = new Select(Helpers.waitUntil(presenceOfElementLocated(cssSelector("select.fll.months.mt0.mb0.qc-select-month")), driver))
+        Select yearDropDown = new Select(Helpers.waitUntil(presenceOfElementLocated(cssSelector("select.flr.years.mt0.mb0.qc-select-year")), driver))
         dateDropDown.selectByIndex(1)
         monthDropDown.selectByIndex(1)
         yearDropDown.selectByIndex(25)
+    }
+
+    public static WebElement assertPopUpPresent() {
+        Helpers.waitUntil(presenceOfElementLocated(cssSelector("button.btn.btn_stylish.btn_main.confirm-ok")), driver)
     }
 }
 

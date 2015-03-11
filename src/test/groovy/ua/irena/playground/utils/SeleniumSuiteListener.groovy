@@ -8,7 +8,7 @@ import org.testng.ISuiteListener
 /**
  * Created by irena on 2/3/15.
  */
-class SeleniumSuiteListener implements ISuiteListener{
+class SeleniumSuiteListener implements ISuiteListener {
 
     private static WebDriver fireFox
 

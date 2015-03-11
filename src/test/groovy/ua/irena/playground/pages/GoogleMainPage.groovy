@@ -29,7 +29,7 @@ class GoogleMainPage extends AbstractPage {
 
     @Override
     public void at() {
-        Helpers.waitUntil presenceOfElementLocated(cssSelector(SEARCH_INPUT_SELECTOR))
+        Helpers.waitUntil(presenceOfElementLocated(cssSelector(SEARCH_INPUT_SELECTOR)), driver)
     }
 }
 

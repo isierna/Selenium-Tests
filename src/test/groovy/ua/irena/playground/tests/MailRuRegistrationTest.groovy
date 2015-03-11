@@ -6,8 +6,6 @@ import org.testng.annotations.Test
 import ua.irena.playground.pages.mailru.MailruHomePage
 import ua.irena.playground.pages.mailru.MailruRegistrationPage
 
-import static org.testng.Assert.assertTrue
-
 /**
  * Created by isierna on 2/27/2015.
  */
@@ -38,7 +36,6 @@ class MailRuRegistrationTest extends AbstractTest {
         registrationPage.toggleMale.click()
 
         registrationPage.submitButton.submit()
-
-        assertTrue(registrationPage.captchaPopup as boolean, "Pop-up with captcha is not shown")
+        registrationPage.assertPopUpPresent()
     }
 }
