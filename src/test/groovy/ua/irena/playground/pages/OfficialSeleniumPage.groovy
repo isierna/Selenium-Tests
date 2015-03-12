@@ -12,12 +12,12 @@ class OfficialSeleniumPage extends AbstractPage {
 
     @Override
     public void at() {
-        waitUntil(presenceOfElementLocated(cssSelector("#menu_about")), driver)
-        waitUntil(presenceOfElementLocated(cssSelector("#menu_documentation")), driver)
-        waitUntil(presenceOfElementLocated(cssSelector('img[src="/images/big-logo.png"]')), driver)
+        waitUntil(presenceOfElementLocated(cssSelector("#menu_about")))
+        waitUntil(presenceOfElementLocated(cssSelector("#menu_documentation")))
+        waitUntil(presenceOfElementLocated(cssSelector('img[src="/images/big-logo.png"]')))
     }
 
-    public static WebElement getLinkToPage(String text) {
-        waitUntil(presenceOfElementLocated(linkText(text)), driver)
+    public WebElement getLinkToPage(String text) {
+        waitUntil(presenceOfElementLocated(linkText(text)))
     }
 }

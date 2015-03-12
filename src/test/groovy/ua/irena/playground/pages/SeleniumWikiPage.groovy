@@ -12,12 +12,12 @@ class SeleniumWikiPage extends AbstractPage {
 
     @Override
     public void at() {
-        waitUntil(presenceOfElementLocated(cssSelector("img[src*='//upload.wikimedia.org/wikipedia/en/5/5c/Seleniumlogo.png']")), driver)
+        waitUntil(presenceOfElementLocated(cssSelector("img[src*='//upload.wikimedia.org/wikipedia/en/5/5c/Seleniumlogo.png']")))
     }
 
     @Override
-    public static void go() {
-        WebElement link = waitUntil(presenceOfElementLocated(linkText("Selenium (software) - Wikipedia, the free encyclopedia")), driver)
+    public void go() {
+        WebElement link = waitUntil(presenceOfElementLocated(linkText("Selenium (software) - Wikipedia, the free encyclopedia")))
         link.click()
     }
 }

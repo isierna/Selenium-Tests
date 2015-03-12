@@ -26,7 +26,7 @@ class GoogleMainPage extends AbstractPage {
 
     @Override
     public void at() {
-        waitUntil(presenceOfElementLocated(cssSelector(SEARCH_INPUT_SELECTOR)), driver)
+        waitUntil(presenceOfElementLocated(cssSelector(SEARCH_INPUT_SELECTOR)))
     }
 }
 

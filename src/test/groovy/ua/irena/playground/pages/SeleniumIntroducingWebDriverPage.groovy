@@ -10,12 +10,12 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElemen
 class SeleniumIntroducingWebDriverPage extends AbstractPage {
     @Override
     public void at() {
-        waitUntil(presenceOfElementLocated(By.cssSelector("#introducing-webdriver")), driver)
+        waitUntil(presenceOfElementLocated(By.cssSelector("#introducing-webdriver")))
     }
 
     @Override
     public void go() {
-        WebElement linkIntroducingWebDriver = waitUntil(presenceOfElementLocated(linkText("Introducing WebDriver")), driver)
+        WebElement linkIntroducingWebDriver = waitUntil(presenceOfElementLocated(linkText("Introducing WebDriver")))
         driver.get(linkIntroducingWebDriver.getAttribute("href"))
     }
 }

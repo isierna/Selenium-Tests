@@ -10,11 +10,11 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.titleIs
 class SeleniumDocumentation extends AbstractPage {
     @Override
     public void at() {
-        waitUntil(titleIs("Selenium Documentation — Selenium Documentation"), driver)
+        waitUntil(titleIs("Selenium Documentation — Selenium Documentation"))
     }
 
-    public static void selectingJavaLanguageOnlyIfNotSelected() {
-        WebElement javaButton = waitUntil(presenceOfElementLocated(cssSelector('input[type="image"][value="java"]')), driver)
+    public void selectingJavaLanguageOnlyIfNotSelected() {
+        WebElement javaButton = waitUntil(presenceOfElementLocated(cssSelector('input[type="image"][value="java"]')))
         String srcValueJavaButton = javaButton.getAttribute("src")
         if (srcValueJavaButton == "http://www.seleniumhq.org/images/icons/java.png") {
             javaButton.click()

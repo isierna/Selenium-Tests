@@ -39,7 +39,7 @@ class MailruRegistrationPage extends AbstractPage {
 
     @Override
     public void at() {
-        waitUntil(presenceOfElementLocated(cssSelector('span[class="sig2"]')), driver)
+        waitUntil(presenceOfElementLocated(cssSelector('span[class="sig2"]')))
     }
 
     public void populateInputs() {
@@ -61,17 +61,17 @@ class MailruRegistrationPage extends AbstractPage {
         randomObject.randomNumeric(3)
     }
 
-    public static setBirthDate() {
-        Select dateDropDown = new Select(waitUntil(presenceOfElementLocated(cssSelector("select.days.mt0.mb0.qc-select-day")), driver))
-        Select monthDropDown = new Select(waitUntil(presenceOfElementLocated(cssSelector("select.fll.months.mt0.mb0.qc-select-month")), driver))
-        Select yearDropDown = new Select(waitUntil(presenceOfElementLocated(cssSelector("select.flr.years.mt0.mb0.qc-select-year")), driver))
+    public void setBirthDate() {
+        Select dateDropDown = new Select(waitUntil(presenceOfElementLocated(cssSelector("select.days.mt0.mb0.qc-select-day"))))
+        Select monthDropDown = new Select(waitUntil(presenceOfElementLocated(cssSelector("select.fll.months.mt0.mb0.qc-select-month"))))
+        Select yearDropDown = new Select(waitUntil(presenceOfElementLocated(cssSelector("select.flr.years.mt0.mb0.qc-select-year"))))
         dateDropDown.selectByIndex(1)
         monthDropDown.selectByIndex(1)
         yearDropDown.selectByIndex(25)
     }
 
-    public static WebElement assertPopUpPresent() {
-        waitUntil(presenceOfElementLocated(cssSelector("button.btn.btn_stylish.btn_main.confirm-ok")), driver)
+    public WebElement assertPopUpPresent() {
+        waitUntil(presenceOfElementLocated(cssSelector("button.btn.btn_stylish.btn_main.confirm-ok")))
     }
 }
 
