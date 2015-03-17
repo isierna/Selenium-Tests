@@ -6,6 +6,9 @@ import org.testng.annotations.Test
 import ua.irena.playground.pages.mailru.MailruHomePage
 import ua.irena.playground.pages.mailru.MailruRegistrationPage
 
+import static ua.irena.playground.utils.Helpers.generateRandomNumber
+import static ua.irena.playground.utils.Helpers.generateRandomString
+
 /**
  * Created by isierna on 2/27/2015.
  */
@@ -31,13 +34,13 @@ class MailRuRegistrationTest extends AbstractTest {
         registrationPage = new MailruRegistrationPage()
         registrationPage.at()
 
-        registrationPage.populateInput(registrationPage.userName, "Ira")
-        registrationPage.populateInput(registrationPage.userSurname, "Sierna")
-        registrationPage.populateInput(registrationPage.emailAddress)
-        registrationPage.populatePasswords()
-        registrationPage.populateInput(registrationPage.dateDropDown, "1")
-        registrationPage.populateInput(registrationPage.monthDropDown, "Май")
-        registrationPage.populateInput(registrationPage.yearDropDown, "1991")
+        registrationPage.firstName.sendKeys("Ira")
+        registrationPage.lastName.sendKeys("Sierna")
+        registrationPage.login.sendKeys(generateRandomString()+ generateRandomNumber())
+        String password = generateRandomString() + generateRandomNumber()
+        registrationPage.password.sendKeys(password)
+        registrationPage.confirmationPassword.sendKeys(password)
+        registrationPage.setBirthDate("1", "Май", "1991")
         registrationPage.toggleMale.click()
 
         registrationPage.submitButton.submit()

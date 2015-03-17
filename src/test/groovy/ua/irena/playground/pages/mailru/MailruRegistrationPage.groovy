@@ -1,15 +1,12 @@
 package ua.irena.playground.pages.mailru
-
 import org.openqa.selenium.WebElement
 import org.openqa.selenium.support.FindBy
 import org.openqa.selenium.support.ui.Select
 import ru.yandex.qatools.htmlelements.loader.HtmlElementLoader
 import ua.irena.playground.pages.AbstractPage
-import ua.irena.playground.utils.Helpers
 
 import static org.openqa.selenium.By.cssSelector
 import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElementLocated
-
 /**
  * Created by isierna on 3/3/2015.
  */
@@ -21,13 +18,13 @@ class MailruRegistrationPage extends AbstractPage {
     WebElement submitButton
 
     @FindBy(css = 'div.vmi.tac.mb14.t0.vt.qc-firstname-row input')
-    WebElement userName
+    WebElement firstName
 
     @FindBy(css = 'div.vmi.tac.mb14.t0.vt.qc-lastname-row input')
-    WebElement userSurname
+    WebElement lastName
 
     @FindBy(css = 'div.pRel.vmi.tac.mb14.t0.vt.login-field.qc-login-row input')
-    WebElement emailAddress
+    WebElement login
 
     @FindBy(css = 'div.vmi.tac.mb14.t0.vt.qc-pass-row input')
     WebElement password
@@ -44,27 +41,14 @@ class MailruRegistrationPage extends AbstractPage {
         waitUntil(presenceOfElementLocated(cssSelector('span[class="sig2"]')))
     }
 
-    public void populatePasswords() {
-        String pass = Helpers.generateRandomString() + Helpers.generateRandomNumber()
-        password.sendKeys(pass)
-        confirmationPassword.sendKeys(pass)
+    public static void setBirthDate(String day, String month, String year) {
+        Select dateDropDown = new Select(waitUntil(presenceOfElementLocated(cssSelector("select.days.mt0.mb0.qc-select-day"))))
+        Select monthDropDown = new Select(waitUntil(presenceOfElementLocated(cssSelector("select.fll.months.mt0.mb0.qc-select-month"))))
+        Select yearDropDown = new Select(waitUntil(presenceOfElementLocated(cssSelector("select.flr.years.mt0.mb0.qc-select-year"))))
+        dateDropDown.selectByVisibleText(day)
+        monthDropDown.selectByVisibleText(month)
+        yearDropDown.selectByVisibleText(year)
     }
-
-    public void populateInput(WebElement element, String string) {
-        element.sendKeys(string)
-    }
-
-    public void populateInput(WebElement element) {
-        element.sendKeys(Helpers.generateRandomString() + Helpers.generateRandomNumber())
-    }
-
-    public void populateInput(Select select, String value) {
-        select.selectByVisibleText(value)
-    }
-
-    Select dateDropDown = new Select(waitUntil(presenceOfElementLocated(cssSelector("select.days.mt0.mb0.qc-select-day"))))
-    Select monthDropDown = new Select(waitUntil(presenceOfElementLocated(cssSelector("select.fll.months.mt0.mb0.qc-select-month"))))
-    Select yearDropDown = new Select(waitUntil(presenceOfElementLocated(cssSelector("select.flr.years.mt0.mb0.qc-select-year"))))
 
     public WebElement assertPopUpPresent() {
         waitUntil(presenceOfElementLocated(cssSelector("button.btn.btn_stylish.btn_main.confirm-ok")))
