@@ -1,5 +1,6 @@
 package ua.irena.playground.utils
 
+import org.apache.commons.lang.RandomStringUtils
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.support.ui.ExpectedCondition
 import org.openqa.selenium.support.ui.WebDriverWait
@@ -22,6 +23,15 @@ class Helpers {
         WebDriverWait wait = new WebDriverWait(driver, timeout)
         wait.until(expectedCondition)
     }
-}
 
+    public static String generateRandomString() {
+        RandomStringUtils randomObject = new RandomStringUtils()
+        randomObject.randomAlphabetic(7)
+    }
+
+    public static String generateRandomNumber() {
+        RandomStringUtils randomObject = new RandomStringUtils()
+        randomObject.randomNumeric(3)
+    }
+}
 

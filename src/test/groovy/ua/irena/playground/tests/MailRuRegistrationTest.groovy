@@ -31,8 +31,13 @@ class MailRuRegistrationTest extends AbstractTest {
         registrationPage = new MailruRegistrationPage()
         registrationPage.at()
 
-        registrationPage.populateInputs()
-        registrationPage.setBirthDate()
+        registrationPage.populateInput(registrationPage.userName, "Ira")
+        registrationPage.populateInput(registrationPage.userSurname, "Sierna")
+        registrationPage.populateInput(registrationPage.emailAddress)
+        registrationPage.populatePasswords()
+        registrationPage.populateInput(registrationPage.dateDropDown, "1")
+        registrationPage.populateInput(registrationPage.monthDropDown, "Май")
+        registrationPage.populateInput(registrationPage.yearDropDown, "1991")
         registrationPage.toggleMale.click()
 
         registrationPage.submitButton.submit()
