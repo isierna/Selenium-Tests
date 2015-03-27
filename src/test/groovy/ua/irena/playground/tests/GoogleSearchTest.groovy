@@ -8,8 +8,8 @@ import ua.irena.playground.pages.*
 import static org.testng.Assert.assertEquals
 import static org.testng.Assert.assertTrue
 /**
- * Created by irena on 2/3/15.
- */
+*  Created by irena on 2/3/15.
+*/
 class GoogleSearchTest extends AbstractTest {
     GoogleMainPage page
     GoogleSearchResultsPage resultsPage

@@ -6,8 +6,8 @@ import org.openqa.selenium.support.ui.ExpectedCondition
 import org.openqa.selenium.support.ui.WebDriverWait
 
 /**
- * Created by irena on 2/3/15.
- */
+*  Created by irena on 2/3/15.
+*/
 class Helpers {
     static WebDriver getDriver() {
         SeleniumSuiteListener.driver
@@ -15,11 +15,11 @@ class Helpers {
 
     public static final long DEFAULT_WAIT = 10L
 
-    public static def waitUntil(ExpectedCondition expectedCondition, WebDriver driver) {
+    public static <T> void waitUntil(ExpectedCondition<T> expectedCondition, WebDriver driver) {
         waitUntil(expectedCondition, DEFAULT_WAIT, driver)
     }
 
-    public static def waitUntil(ExpectedCondition expectedCondition, long timeout, WebDriver driver) {
+    public static <T> void waitUntil(ExpectedCondition<T> expectedCondition, long timeout, WebDriver driver) {
         WebDriverWait wait = new WebDriverWait(driver, timeout)
         wait.until(expectedCondition)
     }

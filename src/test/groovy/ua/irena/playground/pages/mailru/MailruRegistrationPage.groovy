@@ -1,4 +1,5 @@
 package ua.irena.playground.pages.mailru
+
 import org.openqa.selenium.WebElement
 import org.openqa.selenium.support.FindBy
 import org.openqa.selenium.support.ui.Select
@@ -7,9 +8,10 @@ import ua.irena.playground.pages.AbstractPage
 
 import static org.openqa.selenium.By.cssSelector
 import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElementLocated
+
 /**
- * Created by isierna on 3/3/2015.
- */
+*  Created by isierna on 3/3/2015.
+*/
 class MailruRegistrationPage extends AbstractPage {
     @FindBy(css = '#man1')
     WebElement toggleMale

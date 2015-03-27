@@ -5,15 +5,15 @@ import org.openqa.selenium.support.ui.ExpectedCondition
 import ua.irena.playground.utils.Helpers
 import ua.irena.playground.utils.SeleniumSuiteListener
 /**
- * Created by irena on 2/3/15.
- */
+*  Created by irena on 2/3/15.
+*/
 
 abstract class AbstractPage {
     void go() {}
 
     void at() {}
 
-    public static def waitUntil(ExpectedCondition expectedCondition) {
+    public static <T> void waitUntil(ExpectedCondition<T> expectedCondition) {
         Helpers.waitUntil(expectedCondition, driver)
     }
 

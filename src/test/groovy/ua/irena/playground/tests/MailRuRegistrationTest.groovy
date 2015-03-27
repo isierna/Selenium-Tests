@@ -10,8 +10,8 @@ import static ua.irena.playground.utils.Helpers.generateRandomNumber
 import static ua.irena.playground.utils.Helpers.generateRandomString
 
 /**
- * Created by isierna on 2/27/2015.
- */
+*  Created by isierna on 2/27/2015.
+*/
 class MailRuRegistrationTest extends AbstractTest {
     MailruHomePage homePage
     MailruRegistrationPage registrationPage
