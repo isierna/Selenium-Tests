@@ -97,7 +97,7 @@ class GoogleSearchTest extends AbstractTest {
         resultsPage.at()
 
         officialSeleniumPage = new OfficialSeleniumPage()
-        resultsPage.getLinkToPage(officialSeleniumPage.officialPageLink).click()
+        resultsPage.getLinkToPage(officialSeleniumPage.OFFICIAL_PAGE_LINK).click()
 
         officialSeleniumPage.at()
         officialSeleniumPage.getLinkToPage("Documentation").click()

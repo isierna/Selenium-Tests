@@ -15,7 +15,7 @@ class SeleniumIntroducingWebDriverPage extends AbstractPage {
 
     @Override
     public void go() {
-        WebElement linkIntroducingWebDriver = waitUntil(presenceOfElementLocated(linkText("Introducing WebDriver")))
+        WebElement linkIntroducingWebDriver = driver.findElement(linkText("Introducing WebDriver"))
         driver.get(linkIntroducingWebDriver.getAttribute("href"))
     }
 }

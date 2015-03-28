@@ -8,7 +8,7 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElemen
  * Created by irena on 2/9/15.
  */
 class OfficialSeleniumPage extends AbstractPage {
-    String officialPageLink = 'a[href*="www.seleniumhq.org"]'
+    final static String OFFICIAL_PAGE_LINK = 'a[href*="www.seleniumhq.org"]'
 
     @Override
     public void at() {
@@ -17,7 +17,7 @@ class OfficialSeleniumPage extends AbstractPage {
         waitUntil(presenceOfElementLocated(cssSelector('img[src="/images/big-logo.png"]')))
     }
 
-    public WebElement getLinkToPage(String text) {
-        waitUntil(presenceOfElementLocated(linkText(text)))
+    public static WebElement getLinkToPage(String text) {
+        driver.findElement(linkText(text))
     }
 }

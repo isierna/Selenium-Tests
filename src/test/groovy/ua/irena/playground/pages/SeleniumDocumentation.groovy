@@ -14,7 +14,7 @@ class SeleniumDocumentation extends AbstractPage {
     }
 
     public void selectingJavaLanguageOnlyIfNotSelected() {
-        WebElement javaButton = waitUntil(presenceOfElementLocated(cssSelector('input[type="image"][value="java"]')))
+        WebElement javaButton = driver.findElement(cssSelector('input[type="image"][value="java"]'))
         String srcValueJavaButton = javaButton.getAttribute("src")
         if (srcValueJavaButton == "http://www.seleniumhq.org/images/icons/java.png") {
             javaButton.click()

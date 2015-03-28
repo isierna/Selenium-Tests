@@ -46,7 +46,6 @@ class MailRuSengingEmailTest extends AbstractTest {
         newLetterPage.sendButton.click()
 
         confirmationPage = new MailRuConfirmationPage()
-        confirmationPage.saveTimeSent()
         confirmationPage.at()
         confirmationPage.logoutButton.click()
 
@@ -59,15 +58,11 @@ class MailRuSengingEmailTest extends AbstractTest {
 
         inboxPage = new MailRuInboxPage()
         inboxPage.at()
-        waitUntil((textToBePresentInElement(inboxPage.firstMessage, confirmationPage.timeMessageSent)), 30L)
+        waitUntil(textToBePresentInElement(inboxPage.firstMessage, "Test Subject"))
         inboxPage.firstMessage.click()
 
         receivedLetterPage = new MailRuReceivedLetterPage()
         receivedLetterPage.at()
         waitUntil(textToBePresentInElement(receivedLetterPage.letterBody, "Have a nice day!!!"))
-
-
-        Thread.sleep(2222)
-
     }
 }

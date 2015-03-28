@@ -24,8 +24,8 @@ class GoogleSearchResultsPage extends AbstractPage {
         getListOfElements("li.g")
     }
 
-    public WebElement getLinkToPage(String selector) {
-        waitUntil(presenceOfElementLocated(cssSelector(selector)))
+    public static WebElement getLinkToPage(String selector) {
+        driver.findElement(cssSelector(selector))
     }
 
     private static List<WebElement> getListOfElements(String selector) {

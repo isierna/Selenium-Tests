@@ -13,9 +13,7 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElemen
 *  Created by isierna on 3/27/2015.
 */
 class MailRuConfirmationPage extends AbstractPage {
-    String timeMessageSent
-
-    @FindBy(css = 'a#PH_logoutlink')
+    @FindBy(css = 'a#PH_logoutLink')
     WebElement logoutButton
 
     MailRuConfirmationPage() {
@@ -26,11 +24,5 @@ class MailRuConfirmationPage extends AbstractPage {
     public void at() {
         waitUntil(presenceOfElementLocated(cssSelector("div.message-sent__title")))
 
-    }
-
-    public void saveTimeSent() {
-        Calendar timeNow = Calendar.getInstance()
-        SimpleDateFormat<String> simpleDateFormat = new SimpleDateFormat<String>("HH:mm")
-        this.timeMessageSent = simpleDateFormat.format(timeNow.getTime())
     }
 }

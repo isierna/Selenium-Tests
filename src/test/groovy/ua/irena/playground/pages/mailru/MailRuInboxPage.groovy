@@ -15,7 +15,7 @@ class MailRuInboxPage extends AbstractPage{
     @FindBy(css = 'a[data-name="compose"]')
     WebElement newLetterButton
 
-    @FindBy(css = 'div.b-datalist__item:first-child span.b-datalist__item__value.b-datalist__item__date__value')
+    @FindBy(css = 'div.b-datalist__item:first-child a.js-href.b-datalist__item__link')
     WebElement firstMessage
 
     MailRuInboxPage() {

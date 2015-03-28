@@ -13,7 +13,7 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElemen
 *  Created by isierna on 3/27/2015.
 */
 class MailRuNewLetterPage extends AbstractPage{
-    final static SEND_BUTTON = 'div[data-name = "send"]'
+    final static String SEND_BUTTON = 'div[data-name = "send"]'
 
     @FindBy(css = 'textarea[data-original-name="To"]')
     WebElement emailToAddress

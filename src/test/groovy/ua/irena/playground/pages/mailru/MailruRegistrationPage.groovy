@@ -44,9 +44,9 @@ class MailruRegistrationPage extends AbstractPage {
     }
 
     public static void setBirthDate(String day, String month, String year) {
-        Select dateDropDown = new Select(waitUntil(presenceOfElementLocated(cssSelector("select.days.mt0.mb0.qc-select-day"))))
-        Select monthDropDown = new Select(waitUntil(presenceOfElementLocated(cssSelector("select.fll.months.mt0.mb0.qc-select-month"))))
-        Select yearDropDown = new Select(waitUntil(presenceOfElementLocated(cssSelector("select.flr.years.mt0.mb0.qc-select-year"))))
+        Select dateDropDown = new Select(driver.findElement(cssSelector("select.days.mt0.mb0.qc-select-day")))
+        Select monthDropDown = new Select(driver.findElement(cssSelector("select.fll.months.mt0.mb0.qc-select-month")))
+        Select yearDropDown = new Select(driver.findElement(cssSelector("select.flr.years.mt0.mb0.qc-select-year")))
         dateDropDown.selectByVisibleText(day)
         monthDropDown.selectByVisibleText(month)
         yearDropDown.selectByVisibleText(year)

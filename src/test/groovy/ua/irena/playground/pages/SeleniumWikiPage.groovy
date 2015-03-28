@@ -8,7 +8,7 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElemen
  * Created by irena on 2/5/15.
  */
 class SeleniumWikiPage extends AbstractPage {
-    static String PAGE_TITLE = "Selenium (software) - Wikipedia, the free encyclopedia"
+    static final String PAGE_TITLE = "Selenium (software) - Wikipedia, the free encyclopedia"
 
     @Override
     public void at() {
@@ -17,7 +17,7 @@ class SeleniumWikiPage extends AbstractPage {
 
     @Override
     public void go() {
-        WebElement link = waitUntil(presenceOfElementLocated(linkText("Selenium (software) - Wikipedia, the free encyclopedia")))
+        WebElement link = driver.findElement(linkText("Selenium (software) - Wikipedia, the free encyclopedia"))
         link.click()
     }
 }
