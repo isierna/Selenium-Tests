@@ -7,9 +7,10 @@ import ua.irena.playground.pages.AbstractPage
 
 import static org.openqa.selenium.By.cssSelector
 import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElementLocated
+
 /**
-*  Created by isierna on 3/2/2015.
-*/
+ *  Created by isierna on 3/2/2015.
+ */
 class MailruHomePage extends AbstractPage {
     final static String LINK_TO_MAIL_REGISTRATION_SELECTOR = 'a.mailbox__register__link'
 

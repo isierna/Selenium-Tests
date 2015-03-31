@@ -10,8 +10,8 @@ import static org.openqa.selenium.By.cssSelector
 import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElementLocated
 
 /**
-*  Created by isierna on 3/3/2015.
-*/
+ *  Created by isierna on 3/3/2015.
+ */
 class MailruRegistrationPage extends AbstractPage {
     @FindBy(css = '#man1')
     WebElement toggleMale
@@ -52,7 +52,7 @@ class MailruRegistrationPage extends AbstractPage {
         yearDropDown.selectByVisibleText(year)
     }
 
-    public WebElement assertPopUpPresent() {
+    public static WebElement assertPopUpPresent() {
         waitUntil(presenceOfElementLocated(cssSelector("button.btn.btn_stylish.btn_main.confirm-ok")))
     }
 }

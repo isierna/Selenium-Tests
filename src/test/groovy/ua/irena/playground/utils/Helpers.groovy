@@ -6,8 +6,8 @@ import org.openqa.selenium.support.ui.ExpectedCondition
 import org.openqa.selenium.support.ui.WebDriverWait
 
 /**
-*  Created by irena on 2/3/15.
-*/
+ *  Created by irena on 2/3/15.
+ */
 class Helpers {
     static WebDriver getDriver() {
         SeleniumSuiteListener.driver

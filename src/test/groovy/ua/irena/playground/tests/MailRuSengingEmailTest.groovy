@@ -64,5 +64,7 @@ class MailRuSengingEmailTest extends AbstractTest {
         receivedLetterPage = new MailRuReceivedLetterPage()
         receivedLetterPage.at()
         waitUntil(textToBePresentInElement(receivedLetterPage.letterBody, "Have a nice day!!!"))
+        receivedLetterPage.logoutButton.click()
+        homePage.at()
     }
 }

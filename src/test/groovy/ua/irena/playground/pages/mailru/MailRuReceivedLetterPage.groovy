@@ -14,15 +14,18 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElemen
 class MailRuReceivedLetterPage extends AbstractPage {
     final static LETTER_BODY = 'div.b-letter__body'
 
-    @Override
-    public void at() {
-        waitUntil(presenceOfElementLocated(cssSelector(LETTER_BODY)))
-    }
+    @FindBy(css = MailRuReceivedLetterPage.LETTER_BODY)
+    WebElement letterBody
+
+    @FindBy(css = 'a#PH_logoutLink')
+    WebElement logoutButton
 
     MailRuReceivedLetterPage() {
         HtmlElementLoader.populatePageObject(this, driver)
     }
 
-    @FindBy(css = MailRuReceivedLetterPage.LETTER_BODY)
-    WebElement letterBody
+    @Override
+    public void at() {
+        waitUntil(presenceOfElementLocated(cssSelector(LETTER_BODY)))
+    }
 }

@@ -9,9 +9,9 @@ import static org.openqa.selenium.By.cssSelector
 import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElementLocated
 
 /**
-*  Created by isierna on 3/27/2015.
-*/
-class MailRuInboxPage extends AbstractPage{
+ *  Created by isierna on 3/27/2015.
+ */
+class MailRuInboxPage extends AbstractPage {
     @FindBy(css = 'a[data-name="compose"]')
     WebElement newLetterButton
 

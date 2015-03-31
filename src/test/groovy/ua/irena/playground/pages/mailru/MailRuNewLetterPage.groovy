@@ -10,9 +10,9 @@ import static org.openqa.selenium.By.cssSelector
 import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElementLocated
 
 /**
-*  Created by isierna on 3/27/2015.
-*/
-class MailRuNewLetterPage extends AbstractPage{
+ *  Created by isierna on 3/27/2015.
+ */
+class MailRuNewLetterPage extends AbstractPage {
     final static String SEND_BUTTON = 'div[data-name = "send"]'
 
     @FindBy(css = 'textarea[data-original-name="To"]')
