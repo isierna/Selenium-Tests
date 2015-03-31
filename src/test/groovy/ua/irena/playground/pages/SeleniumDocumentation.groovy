@@ -5,20 +5,19 @@ import static org.openqa.selenium.By.cssSelector
 import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElementLocated
 import static org.openqa.selenium.support.ui.ExpectedConditions.titleIs
 /**
- * Created by irena on 2/9/15.
- */
+*  Created by irena on 2/9/15.
+*/
 class SeleniumDocumentation extends AbstractPage {
     @Override
     public void at() {
         waitUntil(titleIs("Selenium Documentation — Selenium Documentation"))
     }
 
-    public void selectingJavaLanguageOnlyIfNotSelected() {
+    public static void selectingJavaLanguageOnlyIfNotSelected() {
         WebElement javaButton = driver.findElement(cssSelector('input[type="image"][value="java"]'))
         String srcValueJavaButton = javaButton.getAttribute("src")
         if (srcValueJavaButton == "http://www.seleniumhq.org/images/icons/java.png") {
             javaButton.click()
         }
     }
-
 }
