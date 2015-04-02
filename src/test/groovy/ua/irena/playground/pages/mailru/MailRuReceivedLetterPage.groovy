@@ -20,6 +20,9 @@ class MailRuReceivedLetterPage extends AbstractPage {
     @FindBy(css = 'a#PH_logoutLink')
     WebElement logoutButton
 
+    @FindBy(css = 'div[data-name="reply"]')
+    WebElement replyButton
+
     MailRuReceivedLetterPage() {
         HtmlElementLoader.populatePageObject(this, driver)
     }

@@ -11,7 +11,7 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElemen
 /**
  *  Created by isierna on 3/27/2015.
  */
-class MailRuConfirmationPage extends AbstractPage {
+class MailRuConfirmationPage extends MailRuInboxPage {
     @FindBy(css = 'a#PH_logoutLink')
     WebElement logoutButton
 

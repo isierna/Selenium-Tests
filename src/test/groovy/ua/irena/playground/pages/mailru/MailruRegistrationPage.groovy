@@ -56,4 +56,3 @@ class MailruRegistrationPage extends AbstractPage {
         waitUntil(presenceOfElementLocated(cssSelector("button.btn.btn_stylish.btn_main.confirm-ok")))
     }
 }
-

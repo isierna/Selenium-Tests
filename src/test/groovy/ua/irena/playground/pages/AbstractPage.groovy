@@ -19,6 +19,10 @@ abstract class AbstractPage {
         Helpers.waitUntil(expectedCondition, driver)
     }
 
+    public static <T> void waitUntil(ExpectedCondition<T> expectedCondition, long timeout) {
+        Helpers.waitUntil(expectedCondition, timeout, driver)
+    }
+
     static WebDriver getDriver() {
         SeleniumSuiteListener.driver
     }
