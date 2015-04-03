@@ -7,6 +7,7 @@ import ua.irena.playground.pages.mailru.*
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.textToBePresentInElement
 import static ua.irena.playground.utils.Helpers.generateRandomNumber
+
 /**
  *  Created by isierna on 4/1/2015.
  */
@@ -30,19 +31,20 @@ class emailRandomAnswerTest extends AbstractTest {
 
     @Test
     void answerRandomEmail() {
+        homePage.login.clear()
         homePage.login.sendKeys("siernai")
         homePage.password.sendKeys("123456zz")
         homePage.loginButton.click()
 
         inboxPage = new MailRuInboxPage()
         inboxPage.at()
-        inboxPage.newLetterButton.click()
 
         String randomNumber = generateRandomNumber()
         String testNumber
         int i
 
         for (i = 9; i > -1; i--) {
+            inboxPage.newLetterButton.click()
             newLetterPage = new MailRuNewLetterPage()
             newLetterPage.at()
             newLetterPage.emailToAddress.sendKeys("receive11@mail.ru")
@@ -52,7 +54,6 @@ class emailRandomAnswerTest extends AbstractTest {
             newLetterPage.sendButton.click()
             confirmationPage = new MailRuConfirmationPage()
             confirmationPage.at()
-            confirmationPage.newLetterButton.click()
         }
 
         confirmationPage.logoutButton.click()

@@ -3,7 +3,6 @@ package ua.irena.playground.pages.mailru
 import org.openqa.selenium.WebElement
 import org.openqa.selenium.support.FindBy
 import ru.yandex.qatools.htmlelements.loader.HtmlElementLoader
-import ua.irena.playground.pages.AbstractPage
 
 import static org.openqa.selenium.By.cssSelector
 import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElementLocated

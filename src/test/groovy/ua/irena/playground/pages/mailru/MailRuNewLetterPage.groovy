@@ -14,9 +14,9 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfAllE
  *  Created by isierna on 3/27/2015.
  */
 class MailRuNewLetterPage extends AbstractPage {
-    final static String SEND_BUTTON = 'div[data-name = "send"]'
+    final static String EMAIL_TO_ADDRESS = 'textarea[data-original-name="To"]'
 
-    @FindBy(css = 'textarea[data-original-name="To"]')
+    @FindBy(css = MailRuNewLetterPage.EMAIL_TO_ADDRESS)
     WebElement emailToAddress
 
     @FindBy(css = 'input[name="Subject"]')
@@ -33,8 +33,8 @@ class MailRuNewLetterPage extends AbstractPage {
     }
 
     public void at() {
-        waitUntil(presenceOfElementLocated(cssSelector('textarea[data-original-name="To"]')))
-        waitUntil(visibilityOfAllElementsLocatedBy(cssSelector('textarea[data-original-name="To"]')))
+        waitUntil(presenceOfElementLocated(cssSelector(EMAIL_TO_ADDRESS)))
+        waitUntil(visibilityOfAllElementsLocatedBy(cssSelector(EMAIL_TO_ADDRESS)))
     }
 
     public void typeMessage(String greeting, String body) {
